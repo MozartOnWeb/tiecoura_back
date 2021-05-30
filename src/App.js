@@ -1,14 +1,15 @@
-import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 // Import Global Styles
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 // Import Comonents
-import PhotoSerie from './components/PhotoSerie'
+import PhotoSerie from "./components/PhotoSerie";
 
 // Import Pages
-import Home from './pages/Home'
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 // Create Global Styles
 const GlobalStyles = createGlobalStyle`
@@ -18,12 +19,7 @@ const GlobalStyles = createGlobalStyle`
   background-color: #161616;
 }
 
-html, body {
-
-}
-
 `;
-
 
 const Theme = {
   mainFont: "Poppins",
@@ -47,6 +43,7 @@ function App() {
       <GlobalStyles />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/login" exact component={Login} />
         <Route path="/:serie" component={PhotoSerie} />
       </Switch>
     </ThemeProvider>

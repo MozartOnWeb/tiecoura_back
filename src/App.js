@@ -10,6 +10,7 @@ import PhotoSerie from "./components/PhotoSerie";
 // Import Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import PrivateRoute from './pages/PrivateRoute'
 
 // Create Global Styles
 const GlobalStyles = createGlobalStyle`
@@ -42,7 +43,7 @@ function App() {
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
       <Switch>
-        <Route path="/" exact component={Home} />
+        <PrivateRoute path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/:serie" component={PhotoSerie} />
       </Switch>

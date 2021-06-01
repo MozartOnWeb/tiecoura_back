@@ -65,11 +65,17 @@ export const SerieTitle = styled.h2`
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   font-size: 18px;
+  ${down("s")} {
+    font-size: 14px;
+  }
   span {
     margin-left: 10px;
     font-size: 22px;
     letter-spacing: 0.8px;
     color: ${(props) => props.theme.red};
+    ${down("s")} {
+      font-size: 16px;
+    }
   }
   ${(props) =>
     props.thin &&
@@ -91,6 +97,10 @@ export const Back = styled.div`
   width: 50px;
   height: 50px;
   margin-right: 15px;
+  ${down("s")} {
+    width: 40px;
+    height: 40px;
+  }
   svg {
     width: 100%;
     height: 100%;

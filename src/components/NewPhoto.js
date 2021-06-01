@@ -30,7 +30,7 @@ const NewPhoto = ({ currentSerie }) => {
   const onUpload = async () => {
     if (file) {
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(`images/${currentSerie}/${file.name}`);
+      const fileRef = storageRef.child(`images/series/${currentSerie}/${file.name}`);
       await fileRef.put(file);
       fs.collection("series")
         .doc(currentSerie)

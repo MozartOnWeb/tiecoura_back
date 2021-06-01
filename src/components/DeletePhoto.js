@@ -7,11 +7,12 @@ import { Delete } from "../styles/deletePhotoStyles";
 import { fs, sr } from "../firebase";
 
 const DeletePhoto = ({ url, name, currentSerie }) => {
+  
   const onDelete = async () => {
     const storageRef = sr.ref();
-    const fileRef = storageRef.child(`images/${currentSerie}/${name}`);
-
+    const fileRef = storageRef.child(`images/series/${currentSerie}/${name}`);
     await fileRef.delete();
+
     fs.collection("series")
       .doc(currentSerie)
       .update({

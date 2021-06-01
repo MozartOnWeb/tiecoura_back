@@ -57,7 +57,7 @@ const PhotoSerie = () => {
         {images &&
           images.map((image) => (
             <SingleSerieWrapper key={image.name}>
-              <img src={image.url} alt={`${image.name}`} />
+              <img src={image.url} alt={image.name} />
               <DeletePhoto
                 name={image.name}
                 url={image.url}

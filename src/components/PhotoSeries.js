@@ -38,8 +38,9 @@ const PhotoSeries = () => {
           <DeleteSerie name={serie.name} serie={serie} />
         </SerieWrapper>
       ))}
-      <hr />
+      <hr className="hr0"/>
       <NewSerie />
+      <hr />
     </SerieContainer>
   );
 };

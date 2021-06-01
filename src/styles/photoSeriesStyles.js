@@ -78,8 +78,12 @@ export const SerieContainer = styled.div`
 
   hr {
     width: 90vw;
-    margin: 10px auto;
+    margin: 20px auto;
     opacity: 0.4;
+  }
+  .hr0 {
+    width: 90vw;
+    visibility: hidden;
   }
 `;
 

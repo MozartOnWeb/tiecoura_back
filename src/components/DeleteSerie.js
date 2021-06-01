@@ -14,7 +14,7 @@ const DeleteSerie = ({ name }) => {
     // Create a root reference
     var storageRef = sr.ref();
     // Create a reference
-    var serieRef = storageRef.child(`images/${name}`);
+    var serieRef = storageRef.child(`images/series/${name}`);
 
     // Now we get the references of these files
     serieRef

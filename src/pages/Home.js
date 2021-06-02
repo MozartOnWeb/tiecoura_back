@@ -3,6 +3,7 @@ import React from "react";
 // Import Components
 import PhotoSeries from "../components/PhotoSeries";
 import AllVideos from "../components/AllVideos";
+import AllBG from "../components/AllBG";
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -37,10 +38,17 @@ const Home = () => {
         <HomeTitle thin="true">Gérez vos séries de photo</HomeTitle>
         <PhotoSeries />
       </HomeWrapper>
+
       <HomeWrapper>
         <HomeTitle thin="true">Gérez vos vidéos</HomeTitle>
         <AllVideos />
       </HomeWrapper>
+
+      <HomeWrapper>
+        <HomeTitle thin="true">Images D'arrière plan</HomeTitle>
+        <AllBG />
+      </HomeWrapper>
+      
     </HomeContainer>
   );
 };

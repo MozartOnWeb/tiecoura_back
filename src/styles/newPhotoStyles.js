@@ -1,5 +1,5 @@
 // Import Styled Components
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 // Import styled Breakpoints
 import { down } from "styled-breakpoints";
@@ -8,6 +8,11 @@ export const PhotoForm = styled.div`
   bottom: 5%;
   width: 300px;
   position: absolute;
+  ${(props) =>
+    props.comp &&
+    css`
+      position: relative;
+    `}
   ${down("sm")} {
     width: 100%;
     position: relative;

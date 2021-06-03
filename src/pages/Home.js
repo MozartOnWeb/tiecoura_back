@@ -4,6 +4,7 @@ import React from "react";
 import PhotoSeries from "../components/PhotoSeries";
 import AllVideos from "../components/AllVideos";
 import AllBG from "../components/AllBG";
+import Competence from "../components/Competence";
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -21,6 +22,29 @@ import {
   LogOut,
 } from "../styles/homeStyles";
 
+const sectionData = [
+  {
+    component: PhotoSeries,
+    title: "Gérez vos séries de photo",
+    id: 0,
+  },
+  {
+    component: AllVideos,
+    title: "Gérez vos vidéos",
+    id: 1,
+  },
+  {
+    component: AllBG,
+    title: " Gérez vos Images D'arrière plan",
+    id: 2,
+  },
+  {
+    component: Competence,
+    title: "Autres images",
+    id: 3,
+  },
+];
+
 const Home = () => {
   const logOut = () => [app.auth().signOut()];
 
@@ -34,21 +58,13 @@ const Home = () => {
         <HomeSubTitle>Ici vous pouvez gérez votre site !</HomeSubTitle>
       </HomeHeadrer>
 
-      <HomeWrapper>
-        <HomeTitle thin="true">Gérez vos séries de photo</HomeTitle>
-        <PhotoSeries />
-      </HomeWrapper>
+      {sectionData.map((section) => (
+        <HomeWrapper key={section.id}>
+          <HomeTitle thin="true"> {section.title} </HomeTitle>
+          <section.component />
+        </HomeWrapper>
+      ))}
 
-      <HomeWrapper>
-        <HomeTitle thin="true">Gérez vos vidéos</HomeTitle>
-        <AllVideos />
-      </HomeWrapper>
-
-      <HomeWrapper>
-        <HomeTitle thin="true">Images D'arrière plan</HomeTitle>
-        <AllBG />
-      </HomeWrapper>
-      
     </HomeContainer>
   );
 };

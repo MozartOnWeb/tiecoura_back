@@ -7,7 +7,7 @@ export const DeleteButton = styled.button`
     font-size: 14px;
     text-transform: uppercase;
     position: absolute;
-    top: 80%;
+    top: 87%;
     transform: translate(-50%, -50%);
     width: 100%;
     color: ${(props) => props.theme.white};

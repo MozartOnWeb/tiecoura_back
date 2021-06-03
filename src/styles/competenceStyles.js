@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Import styled Breakpoints
 import { down } from "styled-breakpoints";
 
-export const BGContainer = styled.div`
+export const CompetenceContainer = styled.div`
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
@@ -25,34 +25,36 @@ export const BGContainer = styled.div`
   }
 `;
 
-export const BGWrapper = styled.div`
-  width: 120px;
-  height: 120px;
+export const CompetenceWrapper = styled.div`
+  width: 150px;
+  height: 150px;
   text-align: center;
   margin: 0px 35px 70px 0px;
   border: 1px solid ${(props) => props.theme.black};
   border-radius: 15px;
   position: relative;
-  ${down("sm")} {
-    width: 135px;
-    margin-bottom: 65px;
-    margin-right: 15px;
-  }
-  ${down("s")} {
-    width: 120px;
-    margin-bottom: 65px;
-    margin-right: 20px;
-  }
 
   img {
     border-radius: 15px;
     width: 100%;
-    height: 100%;
+    height: 70%;
     object-fit: cover;
   }
 
   p {
     color: ${(props) => props.theme.white};
     font-size: 14px;
+  }
+
+  ${down("sm")} {
+    width: 150px;
+    margin-bottom: 65px;
+    margin-right: 15px;
+    height: 180px;
+  }
+  ${down("s")} {
+    width: 150px;
+    margin-bottom: 65px;
+    margin-right: 20px;
   }
 `;

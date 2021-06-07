@@ -18,7 +18,7 @@ const Competence = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fs.collection("CompetenceImages").onSnapshot((snapshot) => {
+    fs.collection("OtherImages").onSnapshot((snapshot) => {
       const tempImages = [];
       snapshot.forEach((doc) => {
         tempImages.push({ ...doc.data(), id: doc.id });
@@ -31,8 +31,8 @@ const Competence = () => {
     <CompetenceContainer>
       {images.map((image) => (
         <CompetenceWrapper key={image.name}>
-            <img src={image.url ? image.url : []} alt={`${image.name}`} />
-            <UpdateCompetence name={image.name} serie={image} />
+          <img src={image.url ? image.url : []} alt={`${image.name}`} />
+          <UpdateCompetence name={image.name} single={image} />
         </CompetenceWrapper>
       ))}
       <hr className="hr0" />

@@ -41,4 +41,9 @@ export const PhotoForm = styled.div`
     margin-top: 10px;
     font-size: 12px;
   }
+
+  div {
+    height: 5px;
+    background: ${props => props.theme.red};
+  }
 `;

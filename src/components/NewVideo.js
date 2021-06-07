@@ -8,6 +8,7 @@ import { VideoForm } from "../styles/newVideoStyles";
 
 // Import Firestore & Storage
 import { fs, sr } from "../firebase/";
+import firebase from "firebase";
 
 const NewVideo = () => {
   const [file, setFile] = useState(null);
@@ -33,6 +34,7 @@ const NewVideo = () => {
         .set({
           name: file.name,
           url: await fileRef.getDownloadURL(),
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     }
     setFile(null);

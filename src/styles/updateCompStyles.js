@@ -16,7 +16,9 @@ export const UpdateForm = styled.div`
   }
 
   input {
-    display: none;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
   }
 
   input[type="file"] {
@@ -25,10 +27,13 @@ export const UpdateForm = styled.div`
 
   label {
     cursor: pointer;
-    display: block;
+    position: absolute;
+    z-index: 1;
     width: 20px;
     height: 20px;
-    margin: 10px auto 5px auto;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%);
     svg {
       width: 100%;
       height: 100%;
@@ -39,6 +44,9 @@ export const UpdateForm = styled.div`
   }
 
   button {
+    letter-spacing: 2.5px;
+    font-weight: 300;
     font-size: 10px;
+    margin-top: 20px;
   }
 `;

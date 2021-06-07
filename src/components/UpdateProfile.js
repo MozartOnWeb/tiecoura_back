@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { Submit } from "../styles/layout";
 
 // Import Styles
-import { PhotoForm } from "../styles/newPhotoStyles";
+import { UpdateForm } from "../styles/updateCompStyles";
+
+import { GrUpdate } from "react-icons/gr";
 
 // Import Firestore & Storage
 import { fs, sr } from "../firebase/";
+import firebase from "firebase";
 
-const NewCompetence = () => {
+const UpdateProfile = ({ name }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
 
@@ -19,21 +22,27 @@ const NewCompetence = () => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
       setFile(selected);
-      setError("");
     } else {
       setError(alert("Tiecoura Veuillez choisir une image au format png/jpeg"));
       setFile(null);
     }
   };
 
+  const deleteLast = async () => {
+    const storageRef = sr.ref();
+    const fileRef = storageRef.child(`images/Profile/${name}`);
+    await fileRef.delete();
+
+    fs.collection("Profile").doc(name).delete();
+  };
+
   const onUpload = async () => {
     if (file) {
+      deleteLast();
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(
-        `images/OtherImages/${file.name}`,
-      );
+      const fileRef = storageRef.child(`images/Profile/${file.name}`);
       await fileRef.put(file);
-      fs.collection("OtherImages")
+      fs.collection("Profile")
         .doc(file.name)
         .set({
           name: file.name,
@@ -43,11 +52,14 @@ const NewCompetence = () => {
   };
 
   return (
-    <PhotoForm comp="true">
+    <UpdateForm>
+      <label htmlFor="file">
+        <GrUpdate />
+      </label>
       <input type="file" onChange={onFileChange} />
-      <Submit onClick={onUpload}>Ajouter cette image</Submit>
-    </PhotoForm>
+      <Submit onClick={onUpload}>Mettre à jour</Submit>
+    </UpdateForm>
   );
 };
 
-export default NewCompetence;
+export default UpdateProfile;

@@ -14,13 +14,15 @@ const AllVideos = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fs.collection("videos").onSnapshot((snap) => {
-      const tempVideos = [];
-      snap.forEach((doc) => {
-        tempVideos.push({ ...doc.data(), id: doc.id });
+    fs.collection("videos")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snap) => {
+        const tempVideos = [];
+        snap.forEach((doc) => {
+          tempVideos.push({ ...doc.data(), id: doc.id });
+        });
+        setVideos(tempVideos);
       });
-      setVideos(tempVideos);
-    });
   }, []);
 
   return (

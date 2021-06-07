@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { fs } from "../firebase";
 
 // Import Component
-import NewVideo from "../components/NewBG";
+import NewBG from "../components/NewBG";
 import DeleteBG from "../components/DeleteBG";
 
 // Import Styles
@@ -36,7 +36,7 @@ const AllBG = () => {
         </BGWrapper>
       ))}
       <hr className="hr0" />
-      <NewVideo />
+      <NewBG />
       <hr />
     </BGContainer>
   );

@@ -15,13 +15,15 @@ const PhotoSeries = () => {
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    fs.collection("series").onSnapshot((snapshot) => {
-      const tempSeries = [];
-      snapshot.forEach((doc) => {
-        tempSeries.push({ ...doc.data(), id: doc.id });
+    fs.collection("series")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        const tempSeries = [];
+        snapshot.forEach((doc) => {
+          tempSeries.push({ ...doc.data(), id: doc.id });
+        });
+        setSeries(tempSeries);
       });
-      setSeries(tempSeries);
-    });
   }, []);
 
   return (
@@ -38,7 +40,7 @@ const PhotoSeries = () => {
           <DeleteSerie name={serie.name} serie={serie} />
         </SerieWrapper>
       ))}
-      <hr className="hr0"/>
+      <hr className="hr0" />
       <NewSerie />
       <hr />
     </SerieContainer>

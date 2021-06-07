@@ -6,6 +6,7 @@ import { Submit } from "../styles/layout";
 
 // import firestore
 import { fs } from "../firebase";
+import firebase from "firebase";
 
 const NewSerie = () => {
   const [serieName, setSerieName] = useState("");
@@ -20,6 +21,7 @@ const NewSerie = () => {
     }
     fs.collection("series").doc(serieName).set({
       name: serieName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
     setSerieName("");
   };

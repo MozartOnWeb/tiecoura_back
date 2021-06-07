@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/storage'
 import 'firebase/firestore'
 
@@ -17,4 +17,3 @@ export const app = firebase.initializeApp(firebaseConfig);
 
 export const fs = app.firestore()
 export const sr = app.storage()
-export const func = app.functions()

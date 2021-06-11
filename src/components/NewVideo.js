@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Import Components
 import { Submit } from "../styles/layout";
 
+// Import Toastify
+import { toast } from "react-toastify";
+
 // Import Styles
 import { VideoForm } from "../styles/newVideoStyles";
 
@@ -15,12 +18,17 @@ const NewVideo = () => {
 
   const types = ["video/mp4", "video/mkv"];
 
+  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UNE VIDEO");
+
+  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTEE AVEC SUCCES");
+
   const onFileChange = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
       setFile(selected);
     } else {
       setFile(null);
+      notifyError();
     }
   };
 
@@ -38,6 +46,7 @@ const NewVideo = () => {
         });
     }
     setFile(null);
+    notifySuccess()
   };
 
   return (

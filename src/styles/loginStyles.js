@@ -13,13 +13,6 @@ export const LoginWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .toast_container {
-    background-color: ${(props) => props.theme.black};
-    color: ${(props) => props.theme.red};
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 16px;
-  }
 `;
 
 export const LoginForm = styled.form`

@@ -1,17 +1,30 @@
 import React from "react";
 
+// Import Toastify
+import { toast } from "react-toastify";
+
 // Import Styles
 import { DeleteButton } from "../styles/deleteVideoStyles";
 
 import { fs, sr } from "../firebase";
 
 const DeleteVideo = ({ video }) => {
-  const onDelete = async () => {
-    const storageRef = sr.ref();
-    const fileRef = storageRef.child(`videos/${video}`);
-    await fileRef.delete();
+  const notifyError = () => toast.error(" 🔥 IMPOSSIBLE DE SUPPRIMER LA VIDEO");
 
-    fs.collection("videos").doc(video).delete();
+  const notifySuccess = () => toast.success(" ✔️ VIDEO SUPPRIMEE AVEC SUCCES");
+
+  const onDelete = async () => {
+    try {
+      const storageRef = sr.ref();
+      const fileRef = storageRef.child(`videos/${video}`);
+      await fileRef.delete();
+
+      fs.collection("videos").doc(video).delete();
+      notifySuccess();
+    } catch (error) {
+      notifyError();
+      console.log(error);
+    }
   };
 
   return (

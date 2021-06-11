@@ -8,20 +8,16 @@ import { app } from "../firebase";
 import { AuthContext } from "../hooks/Auth";
 
 // Import Toastify
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 // import styles
-import {
-  LoginWrapper,
-  LoginForm,
-  FormTitle
-} from "../styles/loginStyles";
+import { LoginWrapper, LoginForm, FormTitle } from "../styles/loginStyles";
 import { Submit } from "../styles/layout";
 
 const Login = ({ history }) => {
-  
-  const Error = () => toast("Impossible de se Connecter");
+  const notifyError = () => toast.error(" 🔥 IMPOSSIBLE DE VOUS CONNECTER ");
+
+  const notifySuccess = () => toast.success(" ✔️ CONNECTION REUSSIE ");
 
   const handleLogin = useCallback(
     async (e) => {
@@ -32,8 +28,9 @@ const Login = ({ history }) => {
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
+        notifySuccess();
       } catch (error) {
-        Error();
+        notifyError();
       }
     },
     [history],
@@ -47,10 +44,6 @@ const Login = ({ history }) => {
 
   return (
     <LoginWrapper>
-      <ToastContainer
-        toastClassName="toast_container"
-        position="bottom-right"
-      />
       <FormTitle>Connectez-vous</FormTitle>
       <LoginForm onSubmit={handleLogin}>
         <input

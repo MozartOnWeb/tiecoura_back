@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 
+// Import URL Validator
+import isURL from "validator/lib/isURL";
+
+// Import Toastify
+import { toast } from "react-toastify";
+
 // Import Components
 import { Submit } from "../styles/layout";
 
@@ -13,19 +19,27 @@ import firebase from "firebase";
 const NewVideo = () => {
   const [url, setUrl] = useState("");
 
+  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UN LIEN VALIDE");
+
+  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTEE AVEC SUCCES");
+
   const onUrlChange = (e) => {
     setUrl(e.target.value);
   };
 
   const onUrlUpload = async () => {
-    if (!url) {
-      return;
+    const valideURL = isURL(url);
+    if (valideURL) {
+      fs.collection("YoutubeVideos").doc().set({
+        url: url,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      setUrl("");
+      notifySuccess();
+    } else {
+      setUrl("");
+      notifyError();
     }
-    fs.collection("YoutubeVideos").doc().set({
-      url: url,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    await setUrl("");
   };
 
   return (

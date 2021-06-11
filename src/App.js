@@ -4,18 +4,20 @@ import { Switch, Route } from "react-router-dom";
 // Import Global Styles
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
+import { ToastContainer } from "react-toastify";
+
 // Import Comonents
 import PhotoSerie from "./components/PhotoSerie";
 
 // Import Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import PrivateRoute from './pages/PrivateRoute'
+import PrivateRoute from "./pages/PrivateRoute";
 
 // Create Global Styles
 const GlobalStyles = createGlobalStyle`
 
-* {
+body {
   font-family: "Poppins";
   background-color: #161616;
 }
@@ -42,6 +44,7 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
+      <ToastContainer autoClose={2000} />
       <Switch>
         <PrivateRoute path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />

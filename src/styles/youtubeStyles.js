@@ -44,7 +44,8 @@ export const VideoWrapper = styled.div`
     margin-right: 20px;
   }
 
-  video, iframe {
+  video,
+  iframe {
     border-radius: 15px;
     width: 100%;
     height: 100%;
@@ -54,5 +55,6 @@ export const VideoWrapper = styled.div`
   p {
     color: ${(props) => props.theme.white};
     font-size: 14px;
+    margin-top: 50px;
   }
 `;

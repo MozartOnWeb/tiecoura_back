@@ -3,6 +3,7 @@ import React from "react";
 // Import Components
 import PhotoSeries from "../components/PhotoSeries";
 import AllVideos from "../components/AllVideos";
+import YoutubeVideos from "../components/YoutubeVideos";
 import AllBG from "../components/AllBG";
 import Competence from "../components/Competence";
 import ProfileImage from "../components/ProfileImage";
@@ -31,29 +32,34 @@ const sectionData = [
     id: 0,
   },
   {
-    component: AllVideos,
-    title: "Gérez vos vidéos",
+    component: YoutubeVideos,
+    title: "Gérez vos Vidéos Principales",
     id: 1,
+  },
+  {
+    component: AllVideos,
+    title: "Gérez vos autres vidéos",
+    id: 2,
   },
   {
     component: AllBG,
     title: " Gérez vos Images D'arrière plan",
-    id: 2,
+    id: 3,
   },
   {
     component: Competence,
     title: "Autres images",
-    id: 3,
+    id: 4,
   },
   {
     component: ProfileImage,
     title: "Changez votre photo de profile",
-    id: 4,
+    id: 5,
   },
   {
     component: WelcomeImages,
     title: "Changez votre image de Bienvenu",
-    id: 5,
+    id: 6,
   },
 ];
 

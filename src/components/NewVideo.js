@@ -18,9 +18,9 @@ const NewVideo = () => {
 
   const types = ["video/mp4", "video/mkv"];
 
-  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UNE VIDEO");
+  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UNE VIDéO");
 
-  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTEE AVEC SUCCES");
+  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTéE AVEC SUCCèS");
 
   const onFileChange = (e) => {
     let selected = e.target.files[0];
@@ -46,7 +46,7 @@ const NewVideo = () => {
         });
     }
     setFile(null);
-    notifySuccess()
+    notifySuccess();
   };
 
   return (

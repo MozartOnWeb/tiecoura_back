@@ -19,9 +19,11 @@ import firebase from "firebase";
 const NewVideo = () => {
   const [url, setUrl] = useState("");
 
-  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UN LIEN VALIDE");
+  const notifyError = () =>
+    toast.error(" 🔥 CECI N'EST PAS UN LIEN VALIDE");
 
-  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTEE AVEC SUCCES");
+  const notifySuccess = () =>
+    toast.success(" ✔️ VIDéO AJOUTéE AVEC SUCCèS");
 
   const onUrlChange = (e) => {
     setUrl(e.target.value);

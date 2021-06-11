@@ -11,7 +11,7 @@ import { fs, sr } from "../firebase";
 const DeleteVideo = ({ video }) => {
   const notifyError = () => toast.error(" 🔥 IMPOSSIBLE DE SUPPRIMER LA VIDEO");
 
-  const notifySuccess = () => toast.success(" ✔️ VIDEO SUPPRIMEE AVEC SUCCES");
+  const notifySuccess = () => toast.success(" ✔️ VIDEO SUPPRIMéE AVEC SUCCèS");
 
   const onDelete = async () => {
     try {

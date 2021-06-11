@@ -20,9 +20,11 @@ const NewPhoto = ({ currentSerie }) => {
 
   const types = ["image/png", "image/jpeg"];
 
-  const notifyError = () => toast.error(" 🔥 IMPOSSIBLE D'AJOUTER CETTE PHOTO");
+  const notifyError = () =>
+    toast.error(" 🔥 IMPOSSIBLE D'AJOUTER CETTE PHOTO");
 
-  const notifySuccess = () => toast.success(" ✔️ PHOTO AJOUTEE AVEC SUCCES");
+  const notifySuccess = () =>
+    toast.success(" ✔️ PHOTO AJOUTéE AVEC SUCCèS");
 
   const onFileChange = (e) => {
     let selected = e.target.files[0];
@@ -60,6 +62,7 @@ const NewPhoto = ({ currentSerie }) => {
                 url: await fileRef.getDownloadURL(),
               }),
             });
+          await notifySuccess();
         },
       );
     } else {
@@ -71,16 +74,19 @@ const NewPhoto = ({ currentSerie }) => {
     if (progress === 100) {
       setFile(null);
     }
-  }, [progress]);
+    if (file === null) {
+      setProgress(0);
+    }
+  }, [progress, file]);
 
   return (
     <PhotoForm>
       {file && (
         <motion.div
-          initial={{ width: 0 + "%" }}
-          animate={{ width: progress + "%" }}></motion.div>
+          initial={{ width: "0%", opacity: 0 }}
+          animate={{ width: progress + "%", opacity: 1 }}></motion.div>
       )}
-      <input type="file" required onChange={onFileChange} />
+      <input type="file" onChange={onFileChange} />
       <Submit onClick={onUpload}>Ajouter cette image</Submit>
     </PhotoForm>
   );

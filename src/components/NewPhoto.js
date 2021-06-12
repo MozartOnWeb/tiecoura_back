@@ -15,35 +15,28 @@ import { fs, sr } from "../firebase/";
 import firebase from "firebase";
 
 const NewPhoto = ({ currentSerie }) => {
-  const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [allImages, setAllImages] = useState([])
 
-  const types = ["image/png", "image/jpeg"];
+  let imagePaths = [];
 
-  const notifyError = () =>
-    toast.error(" 🔥 IMPOSSIBLE D'AJOUTER CETTE PHOTO");
-
-  const notifySuccess = () =>
-    toast.success(" ✔️ PHOTO AJOUTéE AVEC SUCCèS");
-
-  const onFileChange = (e) => {
-    let selected = e.target.files[0];
-    if (selected && types.includes(selected.type)) {
-      setFile(selected);
-    } else {
-      setFile(null);
-      notifyError();
+  const trackFiles = (e) => {
+    imagePaths = [];
+    for (let i = 0; i < e.target.files.length; i++) {
+      allImages.push(e.target.files[i]);
     }
   };
 
-  const onUpload = () => {
+  const uploadFiles = () => {
     const storageRef = sr.ref();
-    if (file) {
-      const fileRef = storageRef.child(
-        `images/series/${currentSerie}/${file.name}`,
+
+    allImages.map(async (img) => {
+      let fileRef = storageRef.child(
+        `images/series/${currentSerie}/${img.name}`,
       );
-      fileRef.put(file).on(
-        "state_changed",
+
+      fileRef.put(img).on(
+        "state_change",
         (snapshot) => {
           const percentage = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
@@ -51,43 +44,40 @@ const NewPhoto = ({ currentSerie }) => {
           setProgress(percentage);
         },
         (error) => {
-          notifyError();
+          console.log(error);
         },
         async () => {
           fs.collection("series")
             .doc(currentSerie)
             .update({
               images: firebase.firestore.FieldValue.arrayUnion({
-                name: file.name,
+                name: img.name,
                 url: await fileRef.getDownloadURL(),
               }),
             });
-          await notifySuccess();
         },
       );
-    } else {
-      notifyError();
-    }
+    });
   };
 
-  useEffect(() => {
-    if (progress === 100) {
-      setFile(null);
-    }
-    if (file === null) {
-      setProgress(0);
-    }
-  }, [progress, file]);
+    useEffect(() => {
+      if (progress === 100) {
+        setAllImages([]);
+      }
+      if (allImages.length === 0) {
+        setProgress(0);
+      }
+    }, [progress, allImages]);
 
   return (
     <PhotoForm>
-      {file && (
+      {allImages && (
         <motion.div
           initial={{ width: "0%", opacity: 0 }}
           animate={{ width: progress + "%", opacity: 1 }}></motion.div>
       )}
-      <input type="file" onChange={onFileChange} />
-      <Submit onClick={onUpload}>Ajouter cette image</Submit>
+      <input type="file" multiple onChange={trackFiles} />
+      <Submit onClick={uploadFiles}>Ajouter cette image</Submit>
     </PhotoForm>
   );
 };

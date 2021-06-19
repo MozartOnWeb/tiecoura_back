@@ -4,15 +4,15 @@ import React, { useState, useEffect } from "react";
 import { fs } from "../firebase";
 
 // Import Component
-import NewCompetence from "../components/NewCompetence";
-import UpdateCompetence from "../components/UpdateCompetence";
+import NewCompetence from "./NewCompetence";
+import UpdateCompetence from "./UpdateCompetence";
 // import DeleteCompetence from "./DeleteCompetence";
 
 // Import Styles
 import {
   CompetenceWrapper,
   CompetenceContainer,
-} from "../styles/competenceStyles";
+} from "../../styles/competenceStyles";
 
 const Competence = () => {
   const [images, setImages] = useState([]);

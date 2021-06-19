@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { SerieWrapper, SerieContainer } from "../../styles/photoSeriesStyles";
 
 // Import Component
-import NewSerie from "../components/NewSerie";
-import DeleteSerie from "./DeleteSerie";
+import NewSerie from "../Serie/NewSerie";
+import DeleteSerie from "../Serie/DeleteSerie";
 
 // Import Firestore
 import { fs } from "../../firebase";

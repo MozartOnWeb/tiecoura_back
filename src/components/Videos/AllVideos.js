@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { fs } from "../../firebase";
 
 // Import Component
-import NewVideo from "../components/NewVideo";
-import DeleteVideo from "../components/DeleteVideo";
+import NewVideo from "./NewVideo";
+import DeleteVideo from "./DeleteVideo";
 
 // Import Styles
 import { VideoContainer, VideoWrapper } from "../../styles/allVideosStyles";

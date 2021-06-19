@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { VideoForm } from "../styles/newVideoStyles";
+import { VideoForm } from "../../styles/newVideoStyles";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase/";
 
 const NewProfile = () => {
   const [file, setFile] = useState(null);

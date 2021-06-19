@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 // Import Styles
-import { WelcomeWrapper, WelcomeContainer } from "../styles/welcomeStyles";
+import { WelcomeWrapper, WelcomeContainer } from "../../styles/welcomeStyles";
 
 // Import Component
-import NewWelcome from "../components/NewWelcome";
 import UpdateWelcome from "../components/UpdateWelcome";
 
 const ProfileImage = () => {

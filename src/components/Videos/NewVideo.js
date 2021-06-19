@@ -7,10 +7,10 @@ import { Submit } from "../styles/layout";
 import { toast } from "react-toastify";
 
 // Import Styles
-import { VideoForm } from "../styles/newVideoStyles";
+import { VideoForm } from "../../styles/newVideoStyles";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase/";
 import firebase from "firebase";
 
 const NewVideo = () => {

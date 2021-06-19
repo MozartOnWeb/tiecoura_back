@@ -1,13 +1,13 @@
 import React from "react";
 
 // Import Styles
-import { Delete } from "../styles/deleteSerieStyles";
+import { Delete } from "../../styles/deleteSerieStyles";
 
 // Import Toastify
 import { toast } from "react-toastify";
 
 // Import Firebase
-import { fs, sr } from "../firebase";
+import { fs, sr } from "../../firebase";
 
 const DeleteSerie = ({ name }) => {
 

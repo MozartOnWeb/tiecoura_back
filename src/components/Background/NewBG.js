@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { VideoForm } from "../styles/newVideoStyles";
+import { VideoForm } from "../../styles/newVideoStyles";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase/";
 
 const NewBG = () => {
   const [progress, setProgress] = useState(0);

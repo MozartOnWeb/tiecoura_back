@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { PhotoForm } from "../styles/newPhotoStyles";
+import { PhotoForm } from "../../styles/newPhotoStyles";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase/";
 import firebase from "firebase";
 
 const NewPhoto = ({ currentSerie }) => {

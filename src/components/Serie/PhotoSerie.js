@@ -11,10 +11,10 @@ import {
   SingleSerieWrapper,
   SerieHeader,
   Back,
-} from "../styles/photoSerieStyles";
+} from "../../styles/photoSerieStyles";
 
 // Import Component
-import NewPhoto from "../components/NewPhoto";
+import NewPhoto from "./NewPhoto";
 import DeletePhoto from "./DeletePhoto";
 import SerieDesc from "./SerieDesc";
 

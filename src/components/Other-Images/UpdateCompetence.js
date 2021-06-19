@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { UpdateForm } from "../styles/updateCompStyles";
+import { UpdateForm } from "../../styles/updateCompStyles";
 
 import { GrUpdate } from "react-icons/gr";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
-import firebase from 'firebase'
+import { fs, sr } from "../../firebase/";
 
 const UpdateCompetence = ({ name }) => {
   const [file, setFile] = useState(null);

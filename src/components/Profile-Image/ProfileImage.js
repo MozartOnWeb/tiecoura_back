@@ -7,8 +7,7 @@ import { fs } from "../../firebase";
 import { ProfileWrapper, ProfileContainer } from "../../styles/profileStyles";
 
 // Import Component
-import NewProfile from "../components/NewProfile";
-import UpdateProfile from "../components/UpdateProfile";
+import UpdateProfile from "./UpdateProfile";
 
 const ProfileImage = () => {
   const [Profile, setProfile] = useState([]);

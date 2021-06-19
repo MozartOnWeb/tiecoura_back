@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { fs } from "../../firebase";
 
 // Import Component
-import NewBG from "../components/NewBG";
-import DeleteBG from "../DeleteBG";
+import NewBG from "./NewBG";
+import DeleteBG from "./DeleteBG";
 
 // Import Styles
 import { BGWrapper, BGContainer } from "../../styles/AllBGStyles";

@@ -2,13 +2,13 @@ import React from "react";
 import firebase from "firebase/app";
 
 // Import Styles
-import { Delete } from "../styles/deletePhotoStyles";
+import { Delete } from "../../styles/deletePhotoStyles";
 
 // Import Toastify
 import { toast } from "react-toastify";
 
 // Import firebase
-import { fs, sr } from "../firebase";
+import { fs, sr } from "../../firebase";
 
 const DeletePhoto = ({ url, name, currentSerie }) => {
 

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { UpdateForm } from "../styles/updateCompStyles";
-
-import { GrUpdate } from "react-icons/gr";
+import { PhotoForm } from "../../styles/newPhotoStyles";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase";
 
-const UpdateWelcome = ({ name }) => {
+const NewCompetence = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
 
@@ -21,27 +19,21 @@ const UpdateWelcome = ({ name }) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
       setFile(selected);
+      setError("");
     } else {
       setError(alert("Tiecoura Veuillez choisir une image au format png/jpeg"));
       setFile(null);
     }
   };
 
-  const deleteLast = async () => {
-    const storageRef = sr.ref();
-    const fileRef = storageRef.child(`images/Welcome/${name}`);
-    await fileRef.delete();
-
-    fs.collection("Welcome").doc(name).delete();
-  };
-
   const onUpload = async () => {
     if (file) {
-      deleteLast();
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(`images/Welcome/${file.name}`);
+      const fileRef = storageRef.child(
+        `images/OtherImages/${file.name}`,
+      );
       await fileRef.put(file);
-      fs.collection("Welcome")
+      fs.collection("OtherImages")
         .doc(file.name)
         .set({
           name: file.name,
@@ -51,14 +43,11 @@ const UpdateWelcome = ({ name }) => {
   };
 
   return (
-    <UpdateForm>
-      <label htmlFor="file">
-        <GrUpdate />
-      </label>
+    <PhotoForm comp="true">
       <input type="file" onChange={onFileChange} />
-      <Submit onClick={onUpload}>Mettre à jour</Submit>
-    </UpdateForm>
+      <Submit onClick={onUpload}>Ajouter cette image</Submit>
+    </PhotoForm>
   );
 };
 
-export default UpdateWelcome;
+export default NewCompetence;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 // Import Styles
-import { ProfileWrapper, ProfileContainer } from "../styles/profileStyles";
+import { ProfileWrapper, ProfileContainer } from "../../styles/profileStyles";
 
 // Import Component
 import NewProfile from "../components/NewProfile";

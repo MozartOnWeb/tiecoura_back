@@ -1,9 +1,9 @@
 import React from "react";
 
 // Import Styles
-import { DeleteBGS } from "../styles/deletePhotoStyles";
+import { DeleteBGS } from "../../styles/deletePhotoStyles";
 
-import { fs, sr } from "../firebase";
+import { fs, sr } from "../../firebase";
 
 const DeleteBG = ({ name }) => {
   const onDelete = async () => {

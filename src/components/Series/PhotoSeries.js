@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // Import Styles
-import { SerieWrapper, SerieContainer } from "../styles/photoSeriesStyles";
+import { SerieWrapper, SerieContainer } from "../../styles/photoSeriesStyles";
 
 // Import Component
 import NewSerie from "../components/NewSerie";
 import DeleteSerie from "./DeleteSerie";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 const PhotoSeries = () => {
   const [series, setSeries] = useState([]);

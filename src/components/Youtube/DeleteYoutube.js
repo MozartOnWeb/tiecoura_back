@@ -4,9 +4,9 @@ import React from "react";
 import { toast } from "react-toastify";
 
 // Import Styles
-import { DeleteButton } from "../styles/deleteYoutube";
+import { DeleteButton } from "../../styles/deleteYoutube";
 
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 const DeleteVideo = ({ video }) => {
   const notifyError = () => toast.error(" 🔥 IMPOSSIBLE DE SUPPRIMER LA VIDéO");

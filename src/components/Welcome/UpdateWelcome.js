@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { VideoForm } from "../styles/newVideoStyles";
+import { UpdateForm } from "../../styles/updateCompStyles";
+
+import { GrUpdate } from "react-icons/gr";
 
 // Import Firestore & Storage
-import { fs, sr } from "../firebase/";
+import { fs, sr } from "../../firebase";
 
-const NewWelcome = () => {
+const UpdateWelcome = ({ name }) => {
   const [file, setFile] = useState(null);
+  const [error, setError] = useState("");
 
   const types = ["image/png", "image/jpeg"];
 
@@ -19,12 +22,22 @@ const NewWelcome = () => {
     if (selected && types.includes(selected.type)) {
       setFile(selected);
     } else {
+      setError(alert("Tiecoura Veuillez choisir une image au format png/jpeg"));
       setFile(null);
     }
   };
 
+  const deleteLast = async () => {
+    const storageRef = sr.ref();
+    const fileRef = storageRef.child(`images/Welcome/${name}`);
+    await fileRef.delete();
+
+    fs.collection("Welcome").doc(name).delete();
+  };
+
   const onUpload = async () => {
     if (file) {
+      deleteLast();
       const storageRef = sr.ref();
       const fileRef = storageRef.child(`images/Welcome/${file.name}`);
       await fileRef.put(file);
@@ -35,15 +48,17 @@ const NewWelcome = () => {
           url: await fileRef.getDownloadURL(),
         });
     }
-    setFile(null);
   };
 
   return (
-    <VideoForm>
+    <UpdateForm>
+      <label htmlFor="file">
+        <GrUpdate />
+      </label>
       <input type="file" onChange={onFileChange} />
-      <Submit onClick={onUpload}>Ajouter cette Photo</Submit>
-    </VideoForm>
+      <Submit onClick={onUpload}>Mettre à jour</Submit>
+    </UpdateForm>
   );
 };
 
-export default NewWelcome;
+export default UpdateWelcome;

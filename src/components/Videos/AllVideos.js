@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 // Import Component
-import NewYoutube from "../components/NewYoutube";
-import DeleteYoutube from "../components/DeleteYoutube";
+import NewVideo from "../components/NewVideo";
+import DeleteVideo from "../components/DeleteVideo";
 
 // Import Styles
-import { VideoContainer, VideoWrapper } from "../styles/youtubeStyles";
+import { VideoContainer, VideoWrapper } from "../../styles/allVideosStyles";
 
 const AllVideos = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fs.collection("YoutubeVideos")
+    fs.collection("videos")
       .orderBy("timestamp", "desc")
       .onSnapshot((snap) => {
         const tempVideos = [];
@@ -28,17 +28,13 @@ const AllVideos = () => {
   return (
     <VideoContainer>
       {videos.map((video) => (
-        <VideoWrapper key={video.id}>
-          <iframe
-            src={video.url}
-            title="Youtube"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-          <DeleteYoutube video={video.id} />
+        <VideoWrapper key={video.name}>
+          <p> {video.name} </p>
+          <DeleteVideo video={video.name} />
         </VideoWrapper>
       ))}
-      <hr className="hr0" />
-      <NewYoutube />
+      <hr className="hr0"/>
+      <NewVideo />
       <hr />
     </VideoContainer>
   );

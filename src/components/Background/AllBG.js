@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 // Import Component
 import NewBG from "../components/NewBG";
-import DeleteBG from "../components/DeleteBG";
+import DeleteBG from "../DeleteBG";
 
 // Import Styles
-import { BGWrapper, BGContainer } from "../styles/AllBGStyles";
+import { BGWrapper, BGContainer } from "../../styles/AllBGStyles";
 
 const AllBG = () => {
   const [BG, setBG] = useState([]);
@@ -31,7 +31,6 @@ const AllBG = () => {
             src={bg.url ? bg.url : []}
             alt={`${bg.name}`}
           />
-          <p>{bg.name}</p>
           <DeleteBG name={bg.name} />
         </BGWrapper>
       ))}

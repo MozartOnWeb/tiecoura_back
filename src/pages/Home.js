@@ -27,6 +27,16 @@ import {
 
 const sectionData = [
   {
+    component: ProfileImage,
+    title: "Changez votre photo de profile",
+    id: 5,
+  },
+  {
+    component: WelcomeImages,
+    title: "Changez votre image de Bienvenu",
+    id: 6,
+  },
+  {
     component: PhotoSeries,
     title: "Gérez vos séries de photo",
     id: 0,
@@ -38,7 +48,7 @@ const sectionData = [
   },
   {
     component: AllVideos,
-    title: "Gérez vos autres vidéos",
+    title: "Gérez vos vidéos secondaires",
     id: 2,
   },
   {
@@ -48,18 +58,8 @@ const sectionData = [
   },
   {
     component: Competence,
-    title: "Autres images",
+    title: "Gérez vos images secondaires",
     id: 4,
-  },
-  {
-    component: ProfileImage,
-    title: "Changez votre photo de profile",
-    id: 5,
-  },
-  {
-    component: WelcomeImages,
-    title: "Changez votre image de Bienvenu",
-    id: 6,
   },
 ];
 
@@ -82,7 +82,6 @@ const Home = () => {
           <section.component />
         </HomeWrapper>
       ))}
-
     </HomeContainer>
   );
 };

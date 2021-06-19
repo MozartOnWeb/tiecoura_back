@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 // Import Styles
-import { SerieForm } from "../styles/newSerieStyles";
-import { Submit } from "../styles/layout";
+import { SerieForm } from "../../styles/newSerieStyles";
+import { Submit } from "../../styles/layout";
 
 // Import Toastify
 import { toast } from "react-toastify";
 
 // import firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 import firebase from "firebase";
 
 const NewSerie = () => {

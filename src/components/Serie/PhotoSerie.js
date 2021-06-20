@@ -19,7 +19,7 @@ import DeletePhoto from "./DeletePhoto";
 import SerieDesc from "./SerieDesc";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 const PhotoSerie = () => {
   const [images, setImages] = useState([]);

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 // Import Styles
-import { DescWrapper } from "../styles/serieDesStyles";
-import { Submit } from "../styles/layout";
+import { DescWrapper } from "../../styles/serieDesStyles";
+import { Submit } from "../../styles/layout";
 
 // Import Firetore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 const SerieDesc = ({ currentSerie }) => {
   const [desc, setDesc] = useState("");

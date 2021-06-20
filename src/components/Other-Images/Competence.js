@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Import Firestore
-import { fs } from "../firebase";
+import { fs } from "../../firebase";
 
 // Import Component
 import NewCompetence from "./NewCompetence";

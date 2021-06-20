@@ -1,13 +1,14 @@
 import React from "react";
 
 // Import Components
-import PhotoSeries from "../components/PhotoSeries";
-import AllVideos from "../components/AllVideos";
-import YoutubeVideos from "../components/YoutubeVideos";
-import AllBG from "../components/AllBG";
-import Competence from "../components/Competence";
-import ProfileImage from "../components/ProfileImage";
-import WelcomeImages from "../components/WelcomeImages";
+import PhotoSeries from "../components/Series/PhotoSeries";
+import AllVideos from "../components/Videos/AllVideos";
+import YoutubeVideos from "../components/Youtube/YoutubeVideos";
+import AllBG from "../components/Background/AllBG";
+import Competence from "../components/Other-Images/Competence";
+import ProfileImage from "../components/Profile-Image/ProfileImage";
+import WelcomeImages from "../components/Welcome/WelcomeImages";
+import AllDescriptions from "../components/Biographies/AllDescriptions"
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -60,6 +61,11 @@ const sectionData = [
     component: Competence,
     title: "Gérez vos images secondaires",
     id: 4,
+  },
+  {
+    component: AllDescriptions,
+    title: "Gérez vos Biographies",
+    id: 7,
   },
 ];
 

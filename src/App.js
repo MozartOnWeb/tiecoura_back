@@ -6,8 +6,8 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import { ToastContainer } from "react-toastify";
 
-// Import Comonents
-import PhotoSerie from "./components/PhotoSerie";
+// Import Components
+import PhotoSerie from "./components/Serie/PhotoSerie";
 
 // Import Pages
 import Home from "./pages/Home";
@@ -30,7 +30,7 @@ body {
 const Theme = {
   mainFont: "Poppins",
   linkFont: "Monument",
-  red: "#E2293F",
+  red: "#4361ee",
   white: "#FFFDFF",
   black: "#161616",
   breakpoints: {

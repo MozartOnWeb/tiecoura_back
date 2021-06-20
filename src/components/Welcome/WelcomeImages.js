@@ -7,7 +7,7 @@ import { fs } from "../../firebase";
 import { WelcomeWrapper, WelcomeContainer } from "../../styles/welcomeStyles";
 
 // Import Component
-import UpdateWelcome from "../components/UpdateWelcome";
+import UpdateWelcome from "./UpdateWelcome";
 
 const ProfileImage = () => {
   const [Welcome, setWelcome] = useState([]);

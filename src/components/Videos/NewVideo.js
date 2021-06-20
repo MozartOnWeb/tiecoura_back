@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Import Components
-import { Submit } from "../styles/layout";
+import { Submit } from "../../styles/layout";
 
 // Import Toastify
 import { toast } from "react-toastify";

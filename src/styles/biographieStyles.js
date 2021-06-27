@@ -34,7 +34,7 @@ export const SingleBio = styled.div`
     font-size: 14px;
     text-decoration: underline;
   }
-  textarea {
+  textarea, input {
     resize: none;
     font-family: ${(props) => props.theme.mainFont};
     color: ${(props) => props.theme.white};
@@ -47,6 +47,8 @@ export const SingleBio = styled.div`
     position: relative;
     outline: none;
   }
+
+
   button {
     font-size: 12px;
     margin-top: 10px;

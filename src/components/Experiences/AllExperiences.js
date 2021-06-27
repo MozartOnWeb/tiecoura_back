@@ -4,35 +4,34 @@ import React, { useState, useEffect } from "react";
 import { BioContainer } from "../../styles/biographieStyles";
 
 // Import Component
-import UpdateBio from "./UpdateBio";
+import UpdateExperience from "./UpdateExperience";
 
 // Import Firestore
 import { fs } from "../../firebase";
 
-const AllDescriptions = () => {
-  const [desc, setDesc] = useState([]);
+const AllExperiences = () => {
+  const [number, setNumber] = useState([]);
 
   useEffect(() => {
-    fs.collection("Descriptions").onSnapshot((snapshot) => {
-      const tempDesc = [];
+    fs.collection("Experiences").onSnapshot((snapshot) => {
+      const tempNumber = [];
       snapshot.forEach((doc) => {
-        tempDesc.push({ ...doc.data(), id: doc.id });
+        tempNumber.push({ ...doc.data(), id: doc.id });
       });
-      setDesc(tempDesc);
+      setNumber(tempNumber);
     });
   }, []);
 
   return (
     <BioContainer>
-      {desc.map((single) => (
+      {number.map((single) => (
         <div key={single.name}>
-          <UpdateBio single={single.id} name={single.name} />
+          <UpdateExperience single={single.id} name={single.name} />
         </div>
       ))}
       <hr className="hr0" />
-      <hr />
     </BioContainer>
   );
 };
 
-export default AllDescriptions;
+export default AllExperiences;

@@ -10,8 +10,8 @@ export const Submit = styled.button`
   color: ${(props) => props.theme.red};
   font-family: ${(props) => props.theme.linkFont};
   text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 1.4px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
   font-size: 14px;
   text-decoration: none;
   position: relative;

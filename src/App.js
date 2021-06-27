@@ -30,7 +30,7 @@ body {
 const Theme = {
   mainFont: "Poppins",
   linkFont: "Monument",
-  red: "#4361ee",
+  red: "#E2293F",
   white: "#FFFDFF",
   black: "#161616",
   breakpoints: {

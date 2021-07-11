@@ -27,7 +27,7 @@ const ProfileImage = () => {
       {Welcome.map((wel) => (
         <WelcomeWrapper key={wel.name}>
           <img src={wel.url ? wel.url : []} alt={`${wel.name}`} />
-          <UpdateWelcome name={wel.name} single={wel} />
+          <UpdateWelcome name={wel.name} single={wel.id} />
         </WelcomeWrapper>
       ))}
       <hr />

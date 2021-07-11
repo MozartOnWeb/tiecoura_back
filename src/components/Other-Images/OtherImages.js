@@ -4,17 +4,16 @@ import React, { useState, useEffect } from "react";
 import { fs } from "../../firebase";
 
 // Import Component
-import NewCompetence from "./NewCompetence";
-import UpdateCompetence from "./UpdateCompetence";
+import UpdateImages from "./UpdateImages";
 // import DeleteCompetence from "./DeleteCompetence";
 
 // Import Styles
 import {
-  CompetenceWrapper,
-  CompetenceContainer,
-} from "../../styles/competenceStyles";
+  ImagesWrapper,
+  ImagesContainer,
+} from "../../styles/otherImgStyles";
 
-const Competence = () => {
+const OtherImages = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -28,18 +27,17 @@ const Competence = () => {
   }, []);
 
   return (
-    <CompetenceContainer>
+    <ImagesContainer>
       {images.map((image) => (
-        <CompetenceWrapper key={image.name}>
+        <ImagesWrapper key={image.id}>
           <img src={image.url ? image.url : []} alt={`${image.name}`} />
-          <UpdateCompetence name={image.name} single={image} />
-        </CompetenceWrapper>
+          <UpdateImages name={image.name} single={image.id} />
+        </ImagesWrapper>
       ))}
       <hr className="hr0" />
-      <NewCompetence />
       <hr />
-    </CompetenceContainer>
+    </ImagesContainer>
   );
 };
 
-export default Competence;
+export default OtherImages;

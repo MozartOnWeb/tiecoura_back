@@ -2,14 +2,15 @@ import React from "react";
 
 // Import Sections
 import PhotoSeries from "../components/Series/PhotoSeries";
-import AllVideos from "../components/Videos/AllVideos";
 import YoutubeVideos from "../components/Youtube/YoutubeVideos";
 import AllBG from "../components/Background/AllBG";
-import Competence from "../components/Other-Images/Competence";
+import OtherImages from "../components/Other-Images/OtherImages";
 import ProfileImage from "../components/Profile-Image/ProfileImage";
 import WelcomeImages from "../components/Welcome/WelcomeImages";
-import AllDescriptions from "../components/Biographies/AllDescriptions"
-import AllExperiences from "../components/Experiences/AllExperiences"
+import AllDescriptions from "../components/Biographies/AllDescriptions";
+import AllExperiences from "../components/Experiences/AllExperiences";
+import OtherVideos from "../components/Other-Videos/OtherVideos";
+import AllVideos from "../components/Videos/AllVideos";
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -27,21 +28,18 @@ import {
   LogOut,
 } from "../styles/homeStyles";
 
-
-
 const Home = () => {
-
   // All Sections Data
   const sectionData = [
-    {
-      component: ProfileImage,
-      title: "Changez votre photo de profile",
-      id: 5,
-    },
     {
       component: WelcomeImages,
       title: "Changez votre image de Bienvenu",
       id: 6,
+    },
+    {
+      component: ProfileImage,
+      title: "Changez votre photo de profile",
+      id: 5,
     },
     {
       component: PhotoSeries,
@@ -49,14 +47,9 @@ const Home = () => {
       id: 0,
     },
     {
-      component: YoutubeVideos,
-      title: "Gérez vos Vidéos Principales",
-      id: 1,
-    },
-    {
-      component: AllVideos,
-      title: "Gérez vos vidéos secondaires",
-      id: 2,
+      component: OtherImages,
+      title: "Gérez vos images secondaires",
+      id: 4,
     },
     {
       component: AllBG,
@@ -64,10 +57,21 @@ const Home = () => {
       id: 3,
     },
     {
-      component: Competence,
-      title: "Gérez vos images secondaires",
-      id: 4,
+      component: AllVideos,
+      title: "Gérez vos Vidéos Principales",
+      id: 9,
     },
+    {
+      component: YoutubeVideos,
+      title: "Gérez vos Vidéos YouTube",
+      id: 1,
+    },
+    {
+      component: OtherVideos,
+      title: "Gérez vos vidéos secondaires",
+      id: 2,
+    },
+
     {
       component: AllDescriptions,
       title: "Gérez vos Biographies",

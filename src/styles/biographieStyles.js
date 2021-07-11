@@ -6,10 +6,10 @@ import { down } from "styled-breakpoints";
 
 export const BioContainer = styled.div`
   width: 90vw;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
+  gap: 12px;
   margin: 50px auto;
-  display: flex;
   align-items: center;
   justify-content: space-around;
 

@@ -27,7 +27,7 @@ const ProfileImage = () => {
       {Profile.map((pro) => (
         <ProfileWrapper key={pro.name}>
           <img src={pro.url ? pro.url : []} alt={`${pro.name}`} />
-          <UpdateProfile name={pro.name} single={pro} />
+          <UpdateProfile name={pro.name} single={pro.id} />
         </ProfileWrapper>
       ))}
       <hr />

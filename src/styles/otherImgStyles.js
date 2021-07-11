@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Import styled Breakpoints
 import { down } from "styled-breakpoints";
 
-export const CompetenceContainer = styled.div`
+export const ImagesContainer = styled.div`
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +25,7 @@ export const CompetenceContainer = styled.div`
   }
 `;
 
-export const CompetenceWrapper = styled.div`
+export const ImagesWrapper = styled.div`
   width: 150px;
   height: 150px;
   text-align: center;
@@ -34,7 +34,7 @@ export const CompetenceWrapper = styled.div`
   border-radius: 15px;
   position: relative;
 
-  img {
+  img, video {
     border-radius: 15px;
     width: 100%;
     height: 70%;

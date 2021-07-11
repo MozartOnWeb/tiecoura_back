@@ -16,7 +16,7 @@ const DeleteVideo = ({ video }) => {
   const onDelete = async () => {
     try {
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(`videos/${video}`);
+      const fileRef = storageRef.child(`videos/Principales/${video}`);
       await fileRef.delete();
 
       fs.collection("videos").doc(video).delete();

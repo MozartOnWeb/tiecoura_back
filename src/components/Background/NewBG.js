@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 // Import Components
 import { Submit } from "../../styles/layout";
 
+// Import Toastify
+import { toast } from "react-toastify";
+
 // Import Styles
 import { VideoForm } from "../../styles/newVideoStyles";
 
@@ -14,6 +17,8 @@ import { fs, sr } from "../../firebase/";
 const NewBG = () => {
   const [progress, setProgress] = useState(0);
   const [allImages, setAllImages] = useState([]);
+
+  const notifySuccess = () => toast.success(" ✔️ AJOUT REUSSIE");
 
   let imagePaths = [];
 
@@ -28,9 +33,7 @@ const NewBG = () => {
     const storageRef = sr.ref();
 
     allImages.map(async (img) => {
-      let fileRef = storageRef.child(
-        `images/BGImages/${img.name}`,
-      );
+      let fileRef = storageRef.child(`images/BGImages/${img.name}`);
 
       fileRef.put(img).on(
         "state_change",
@@ -50,6 +53,7 @@ const NewBG = () => {
               name: img.name,
               url: await fileRef.getDownloadURL(),
             });
+          notifySuccess();
         },
       );
     });
@@ -59,19 +63,13 @@ const NewBG = () => {
     if (progress === 100) {
       setAllImages([]);
     }
-    if (allImages.length === 0) {
-      setProgress(0);
-    }
-  }, [progress, allImages]);
-
+  }, [progress]);
   return (
     <VideoForm>
-      {allImages && (
-        <motion.div
-          initial={{ width: "0%", opacity: 0 }}
-          animate={{ width: progress + "%", opacity: 1 }}></motion.div>
+      {allImages.length > 0 && (
+        <motion.div animate={{ width: progress + "%" }}></motion.div>
       )}
-      <input type="file" multiple onChange={trackFiles} />
+      <input type="file" multiple onChange={trackFiles} accept="image/*" />
       <Submit onClick={uploadFiles}>Ajouter cette Photo</Submit>
     </VideoForm>
   );

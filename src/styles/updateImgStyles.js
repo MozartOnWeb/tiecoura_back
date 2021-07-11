@@ -17,18 +17,19 @@ export const UpdateForm = styled.div`
 
   input {
     opacity: 0;
-    cursor: pointer;
-    z-index: 5;
+    z-index: 1;
   }
 
   input[type="file"] {
     font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
   }
 
   label {
     cursor: pointer;
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     width: 20px;
     height: 20px;
     left: 50%;
@@ -41,12 +42,25 @@ export const UpdateForm = styled.div`
         stroke: ${(props) => props.theme.red};
       }
     }
+
+    .svg2 {
+      fill: ${(props) => props.theme.red};
+      width: 24px;
+      height: 24px;
+    }
   }
 
   button {
     letter-spacing: 2.5px;
     font-weight: 300;
     font-size: 10px;
-    margin-top: 20px;
+    margin-top: 5px;
+  }
+
+  div {
+    height: 3px;
+    background: ${(props) => props.theme.red};
+    margin-top: 10px;
+    width: 0px;
   }
 `;

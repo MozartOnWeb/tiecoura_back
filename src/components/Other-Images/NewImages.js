@@ -9,29 +9,18 @@ import { PhotoForm } from "../../styles/newPhotoStyles";
 // Import Firestore & Storage
 import { fs, sr } from "../../firebase";
 
-const NewCompetence = () => {
+const NewImages = () => {
   const [file, setFile] = useState(null);
-  const [error, setError] = useState("");
-
-  const types = ["image/png", "image/jpeg"];
 
   const onFileChange = (e) => {
     let selected = e.target.files[0];
-    if (selected && types.includes(selected.type)) {
-      setFile(selected);
-      setError("");
-    } else {
-      setError(alert("Tiecoura Veuillez choisir une image au format png/jpeg"));
-      setFile(null);
-    }
+    setFile(selected);
   };
 
   const onUpload = async () => {
     if (file) {
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(
-        `images/OtherImages/${file.name}`,
-      );
+      const fileRef = storageRef.child(`images/OtherImages/${file.name}`);
       await fileRef.put(file);
       fs.collection("OtherImages")
         .doc(file.name)
@@ -44,10 +33,10 @@ const NewCompetence = () => {
 
   return (
     <PhotoForm comp="true">
-      <input type="file" onChange={onFileChange} />
+      <input type="file" onChange={onFileChange} accept="image/*" />
       <Submit onClick={onUpload}>Ajouter cette image</Submit>
     </PhotoForm>
   );
 };
 
-export default NewCompetence;
+export default NewImages;

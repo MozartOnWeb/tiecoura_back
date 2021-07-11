@@ -3,32 +3,47 @@ import React, { useState } from "react";
 // Import Components
 import { Submit } from "../../styles/layout";
 
+// Import Styles
+import { UpdateForm } from "../../styles/updateImgStyles";
+
 // Import Toastify
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
-// Import Styles
-import { VideoForm } from "../../styles/newVideoStyles";
+import { GrUpdate } from "react-icons/gr";
+import { BsFileCheck } from "react-icons/bs";
 
 // Import Firestore & Storage
-import { fs, sr } from "../../firebase/";
-import firebase from "firebase";
+import { fs, sr } from "../../firebase";
 
-const NewVideo = () => {
+const UpdateImages = ({ name, single }) => {
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
 
-  const notifySuccess = () => toast.success(" ✔️ VIDEO AJOUTéE AVEC SUCCèS");
+  const notifyError2 = () => toast.error(" 🔥 AUCUNE IMAGE CHOISIE");
+
+  const notifySuccess = () => toast.success(" ✔️ MISE à JOUR REUSSIE");
 
   const onFileChange = (e) => {
     let selected = e.target.files[0];
     setFile(selected);
   };
 
+  const deleteLast = async () => {
+    const storageRef = sr.ref();
+    try {
+      const fileRef = storageRef.child(`images/OtherImages/${name}`);
+      await fileRef.delete();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const onUpload2 = async (e) => {
     if (file) {
+      deleteLast();
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(`videos/Principales/${file.name}`);
+      const fileRef = storageRef.child(`images/OtherImages/${file.name}`);
       await fileRef.put(file).on(
         "state_change",
         (snapshot) => {
@@ -39,14 +54,14 @@ const NewVideo = () => {
         },
         (err) => {
           console.log(err);
+          notifyError2();
         },
         async () => {
-          fs.collection("videos")
-            .doc(file.name)
-            .set({
+          fs.collection("OtherImages")
+            .doc(single)
+            .update({
               name: file.name,
               url: await fileRef.getDownloadURL(),
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
           setFile((e.target.value = null));
           notifySuccess();
@@ -56,16 +71,18 @@ const NewVideo = () => {
   };
 
   return (
-    <VideoForm>
+    <UpdateForm>
+      <label htmlFor="file">
+        {file ? <BsFileCheck className="svg2" /> : <GrUpdate />}
+      </label>
+      <input type="file" onChange={onFileChange} accept="image/*" />
+      <Submit onClick={onUpload2}>Mettre à jour</Submit>
       {file && (
         <motion.div
           animate={{ width: progress + "%" }}></motion.div>
       )}
-
-      <input type="file" onChange={onFileChange} accept="video/*" />
-      <Submit onClick={onUpload2}>Ajouter cette vidéo</Submit>
-    </VideoForm>
+    </UpdateForm>
   );
 };
 
-export default NewVideo;
+export default UpdateImages;

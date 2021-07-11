@@ -24,7 +24,7 @@ const NewPhoto = ({ currentSerie }) => {
     }
   };
 
-  const uploadFiles = async () => {
+  const uploadFiles = async (e) => {
     const storageRef = sr.ref();
 
     allImages.map(async (img) => {
@@ -61,19 +61,17 @@ const NewPhoto = ({ currentSerie }) => {
     if (progress === 100) {
       setAllImages([]);
     }
-    if (allImages.length === 0) {
-      setProgress(0);
-    }
-  }, [progress, allImages]);
+  }, [progress]);
 
   return (
     <PhotoForm>
-      {allImages && (
+      {allImages.length > 0 && (
         <motion.div
-          initial={{ width: "0%", opacity: 0 }}
-          animate={{ width: progress + "%", opacity: 1 }}></motion.div>
+          animate={{
+            width: progress + "%",
+          }}></motion.div>
       )}
-      <input type="file" multiple onChange={trackFiles} />
+      <input type="file" multiple onChange={trackFiles} accept="image/*" />
       <Submit onClick={uploadFiles}>Ajouter cette image</Submit>
     </PhotoForm>
   );

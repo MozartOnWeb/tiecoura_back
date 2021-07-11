@@ -29,11 +29,11 @@ const AllVideos = () => {
     <VideoContainer>
       {videos.map((video) => (
         <VideoWrapper key={video.name}>
-          <p> {video.name} </p>
+          <video src={video.url} autoPlay={false} />
           <DeleteVideo video={video.name} />
         </VideoWrapper>
       ))}
-      <hr className="hr0"/>
+      <hr className="hr0" />
       <NewVideo />
       <hr />
     </VideoContainer>

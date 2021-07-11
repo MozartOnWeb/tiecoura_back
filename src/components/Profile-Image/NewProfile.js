@@ -12,15 +12,9 @@ import { fs, sr } from "../../firebase/";
 const NewProfile = () => {
   const [file, setFile] = useState(null);
 
-  const types = ["image/png", "image/jpeg"];
-
   const onFileChange = (e) => {
     let selected = e.target.files[0];
-    if (selected && types.includes(selected.type)) {
-      setFile(selected);
-    } else {
-      setFile(null);
-    }
+    setFile(selected);
   };
 
   const onUpload = async () => {
@@ -40,7 +34,7 @@ const NewProfile = () => {
 
   return (
     <VideoForm>
-      <input type="file" onChange={onFileChange} />
+      <input type="file" onChange={onFileChange} accept="image/*" />
       <Submit onClick={onUpload}>Ajouter cette Photo</Submit>
     </VideoForm>
   );

@@ -37,5 +37,7 @@ export const VideoForm = styled.div`
   div {
     height: 5px;
     background: ${(props) => props.theme.red};
+    margin-top: 5px;
+    width: 0%;
   }
 `;

@@ -11,12 +11,13 @@ import AllDescriptions from "../components/Biographies/AllDescriptions";
 import AllExperiences from "../components/Experiences/AllExperiences";
 import OtherVideos from "../components/Other-Videos/OtherVideos";
 import AllVideos from "../components/Videos/AllVideos";
+import FooterInfo from "../components/FooterInfo/FooterInfo";
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
 
 // Import Firebase
-import { app } from "../firebase";
+import { auth } from "../firebase";
 
 //Import Home Styles
 import {
@@ -82,10 +83,15 @@ const Home = () => {
       title: "Votre Expérience",
       id: 8,
     },
+    {
+      component: FooterInfo,
+      title: "Localisation & Contact",
+      id: 10,
+    },
   ];
 
   // LogOut Function
-  const logOut = () => [app.auth().signOut()];
+  const logOut = () => [auth.signOut()];
 
   return (
     <HomeContainer>

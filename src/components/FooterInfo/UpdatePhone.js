@@ -7,17 +7,17 @@ import { SingleBio } from "../../styles/biographieStyles";
 // Import Firetore
 import { fs } from "../../firebase";
 
-const UpdateExperience = ({ single }) => {
+const UpdatePhone = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
 
-  const onDescChange = (e) => setNumber(e.target.value);
+  const onPhoneNumberChnage = (e) => setNumber(e.target.value);
 
   useEffect(() => {
-    const serieRef = fs.collection("Experiences").doc(single);
+    const serieRef = fs.collection("Contact").doc("01");
 
     serieRef.get().then((doc) => {
-      let { number, name } = doc.data(single);
+      let { number, name } = doc.data("01");
       setNumber(number);
       setName(name);
     });
@@ -25,7 +25,7 @@ const UpdateExperience = ({ single }) => {
 
   const onSend = () => {
     if (number) {
-      fs.collection("Experiences").doc(single).update({
+      fs.collection("Contact").doc("01").update({
         number: number,
       });
     }
@@ -34,10 +34,10 @@ const UpdateExperience = ({ single }) => {
   return (
     <SingleBio>
       <p> {name} </p>
-      <input type="number" name="number" value={number} onChange={onDescChange} />
+      <input type="tel" name="tel" value={number} onChange={onPhoneNumberChnage} />
       <Submit onClick={onSend}>Mettre à jour</Submit>
     </SingleBio>
   );
 };
 
-export default UpdateExperience;
+export default UpdatePhone;

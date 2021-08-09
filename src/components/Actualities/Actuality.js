@@ -14,32 +14,31 @@ import {
 } from "../../styles/photoSerieStyles";
 
 // Import Component
-import NewPhoto from "./NewPhoto";
-import DeletePhoto from "./DeletePhoto";
-import SerieDesc from "./SerieDesc";
+import UpdateImage from "./UpdateImage";
+import ActualityDesc from "./ActualityDesc";
 
 // Import Firestore
 import { fs } from "../../firebase";
 
-const PhotoSerie = () => {
-  const [images, setImages] = useState([]);
-  const [serieName, setSerieName] = useState("");
+const Actuality = () => {
+  const [image, setImage] = useState([]);
+  const [ActualityName, setSerieName] = useState("");
   const [serieDesc, setSerieDesc] = useState("");
 
-  const match = useRouteMatch("/series/:serie");
-  const { serie } = match.params;
+  const match = useRouteMatch("/actualities/:actuality");
+  const { actuality } = match.params;
 
   useEffect(() => {
-    fs.collection("series")
-      .doc(serie)
+    fs.collection("Actualities")
+      .doc(actuality)
       .onSnapshot((doc) => {
         if (doc.exists) {
-          setImages(doc.data().images || []);
+          setImage(doc.data().image || []);
           setSerieName(doc.data().name);
           setSerieDesc(doc.data().desc);
         }
       });
-  }, [serie]);
+  }, [actuality]);
 
   return (
     <SerieContainer>
@@ -50,27 +49,23 @@ const PhotoSerie = () => {
           </Link>
         </Back>
         <SerieTitle>
-          Série de photos : <span>{serieName}</span>
+          Actualité : <span>{ActualityName}</span>
         </SerieTitle>
       </SerieHeader>
       <div className="series_container">
-        {images &&
-          images.map((image) => (
-            <SingleSerieWrapper key={image.name}>
-              <img src={image.url} alt={image.name} />
-              <DeletePhoto
-                name={image.name}
-                url={image.url}
-                currentSerie={serie}
-              />
-            </SingleSerieWrapper>
-          ))}
+        <SingleSerieWrapper>
+          <img src={image} alt={image} />
+          <UpdateImage
+            name={image}
+            single={image}
+            currentActuality={actuality}
+          />
+        </SingleSerieWrapper>
       </div>
       <hr />
-      <NewPhoto currentSerie={serie} />
-      <SerieDesc currentSerie={serie} />
+      <ActualityDesc currentActuality={actuality} />
     </SerieContainer>
   );
 };
 
-export default PhotoSerie;
+export default Actuality;

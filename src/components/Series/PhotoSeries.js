@@ -11,6 +11,14 @@ import DeleteSerie from "../Serie/DeleteSerie";
 // Import Firestore
 import { fs } from "../../firebase";
 
+// Import custom arrows
+import { NextArrow, PrevArrow } from "../CustomArrows";
+
+// Import React Slick
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const PhotoSeries = () => {
   const [series, setSeries] = useState([]);
 
@@ -25,6 +33,20 @@ const PhotoSeries = () => {
         setSeries(tempSeries);
       });
   }, []);
+
+   // Slider Settings
+   const setting = {
+    dots: false,
+    infinite: true,
+    speed: 700,
+    slidesToScroll: 4,
+    slidesToShow: 4,
+    autoplay: false,
+    fade: false,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
 
   return (
     <SerieContainer>

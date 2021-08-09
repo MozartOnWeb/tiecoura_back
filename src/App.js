@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 
 // Import Components
 import PhotoSerie from "./components/Serie/PhotoSerie";
+import Actuality from "./components/Actualities/Actuality";
 
 // Import Pages
 import Home from "./pages/Home";
@@ -51,7 +52,8 @@ function App() {
       <Switch>
         <PrivateRoute path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
-        <Route path="/:serie" component={PhotoSerie} />
+        <Route path="/series/:serie" component={PhotoSerie} />
+        <Route path="/actualities/:actuality" component={Actuality} />
       </Switch>
     </ThemeProvider>
   );

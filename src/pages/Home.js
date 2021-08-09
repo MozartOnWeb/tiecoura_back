@@ -12,6 +12,7 @@ import AllExperiences from "../components/Experiences/AllExperiences";
 import OtherVideos from "../components/Other-Videos/OtherVideos";
 import AllVideos from "../components/Videos/AllVideos";
 import FooterInfo from "../components/FooterInfo/FooterInfo";
+import Actualities from "../components/Actualities/Actualities";
 
 // Import Icon
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -87,6 +88,11 @@ const Home = () => {
       component: FooterInfo,
       title: "Localisation & Contact",
       id: 10,
+    },
+    {
+      component: Actualities,
+      title: "Actualité",
+      id: 11,
     },
   ];
 

@@ -42,7 +42,6 @@ const Actualities = () => {
       ))}
       <hr className="hr0" />
       <NewActuality />
-      <hr />
     </SerieContainer>
   );
 };

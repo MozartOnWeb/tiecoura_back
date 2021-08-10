@@ -30,6 +30,7 @@ const AllExperiences = () => {
         </div>
       ))}
       <hr className="hr0" />
+      <hr />
     </BioContainer>
   );
 };

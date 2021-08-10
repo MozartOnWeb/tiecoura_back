@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Import Styles
-import { DescWrapper } from "../../styles/serieDesStyles";
+import { ActyalityDesc } from "../../styles/ActualitiesStyles";
 import { Submit } from "../../styles/layout";
 
 // Import Firetore
@@ -9,8 +9,8 @@ import { fs } from "../../firebase";
 
 const ActualityDesc = ({ currentActuality }) => {
   const [desc, setDesc] = useState("");
-  const [title, setTitle] = useState("")
-  const [date, setDate] = useState("")
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
 
   const onDescChange = (e) => setDesc(e.target.value);
   const onTitleChange = (e) => setTitle(e.target.value);
@@ -22,8 +22,8 @@ const ActualityDesc = ({ currentActuality }) => {
     serieRef.get().then((doc) => {
       let { desc, title, date } = doc.data();
       setDesc(desc);
-      setTitle(title)
-      setDate(date)
+      setTitle(title);
+      setDate(date);
     });
   }, []);
 
@@ -38,12 +38,12 @@ const ActualityDesc = ({ currentActuality }) => {
   };
 
   return (
-    <DescWrapper>
-      <textarea cols="30" rows="5" value={desc} onChange={onDescChange} />
+    <ActyalityDesc>
       <input type="text" value={title} onChange={onTitleChange} />
       <input type="date" value={date} onChange={onDateChange} />
+      <textarea cols="30" rows="5" value={desc} onChange={onDescChange} />
       <Submit onClick={onSend}>Mettre à jour</Submit>
-    </DescWrapper>
+    </ActyalityDesc>
   );
 };
 

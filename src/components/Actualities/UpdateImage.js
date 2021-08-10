@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Submit } from "../../styles/layout";
 
 // Import Styles
-import { UpdateForm } from "../../styles/updateImgStyles";
+import { UpdateForm } from "../../styles/ActualitiesStyles";
 
 // Import Toastify
 import { toast } from "react-toastify";

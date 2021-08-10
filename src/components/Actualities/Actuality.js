@@ -6,12 +6,12 @@ import { MdKeyboardBackspace } from "react-icons/md";
 
 // Import Styles
 import {
-  SerieContainer,
-  SerieTitle,
-  SingleSerieWrapper,
-  SerieHeader,
+  ActualityWrapper,
+  ActualityTitle,
+  ImageWrapper,
+  ActualityHeader,
   Back,
-} from "../../styles/photoSerieStyles";
+} from "../../styles/ActualitiesStyles";
 
 // Import Component
 import UpdateImage from "./UpdateImage";
@@ -43,26 +43,26 @@ const Actuality = () => {
   }, [actuality]);
 
   return (
-    <SerieContainer>
-      <SerieHeader>
+    <ActualityWrapper>
+      <ActualityHeader>
         <Back>
           <Link to="/">
             <MdKeyboardBackspace />
           </Link>
         </Back>
-        <SerieTitle>
+        <ActualityTitle>
           Actualité : <span>{ActualityName}</span>
-        </SerieTitle>
-      </SerieHeader>
+        </ActualityTitle>
+      </ActualityHeader>
       <div className="series_container">
-        <SingleSerieWrapper>
+        <ImageWrapper>
           <img src={image} alt={image} />
           <UpdateImage name={imageName} currentActuality={actuality} />
-        </SingleSerieWrapper>
+        </ImageWrapper>
+        <hr />
+        <ActualityDesc currentActuality={actuality} />
       </div>
-      <hr />
-      <ActualityDesc currentActuality={actuality} />
-    </SerieContainer>
+    </ActualityWrapper>
   );
 };
 

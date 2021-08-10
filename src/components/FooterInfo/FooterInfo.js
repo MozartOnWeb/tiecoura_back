@@ -44,7 +44,7 @@ const FooterInfo = () => {
       <UpdateEmail />
       <UpdatePhone />
       <hr className="hr0" />
-      <hr />
+      <hr /> 
     </BioContainer>
   );
 };

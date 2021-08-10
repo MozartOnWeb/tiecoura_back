@@ -39,7 +39,7 @@ const NewActuality = () => {
   return (
     <SerieForm>
       <input value={actName} onChange={onSerieNameChange} type="text" />
-      <Submit onClick={onSerieCreate}>Créer une Nouvelle Série</Submit>
+      <Submit onClick={onSerieCreate}>Créer une nouvelle actualité</Submit>
     </SerieForm>
   );
 };

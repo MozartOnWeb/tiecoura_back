@@ -22,8 +22,9 @@ import { fs } from "../../firebase";
 
 const Actuality = () => {
   const [image, setImage] = useState([]);
-  const [ActualityName, setSerieName] = useState("");
+  const [ActualityName, setActualityName] = useState("");
   const [serieDesc, setSerieDesc] = useState("");
+  const [imageName, setImageName] = useState("");
 
   const match = useRouteMatch("/actualities/:actuality");
   const { actuality } = match.params;
@@ -34,8 +35,9 @@ const Actuality = () => {
       .onSnapshot((doc) => {
         if (doc.exists) {
           setImage(doc.data().image || []);
-          setSerieName(doc.data().name);
+          setActualityName(doc.data().name);
           setSerieDesc(doc.data().desc);
+          setImageName(doc.data().imageName);
         }
       });
   }, [actuality]);
@@ -55,11 +57,7 @@ const Actuality = () => {
       <div className="series_container">
         <SingleSerieWrapper>
           <img src={image} alt={image} />
-          <UpdateImage
-            name={image}
-            single={image}
-            currentActuality={actuality}
-          />
+          <UpdateImage name={imageName} currentActuality={actuality} />
         </SingleSerieWrapper>
       </div>
       <hr />

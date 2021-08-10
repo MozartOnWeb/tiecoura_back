@@ -52,7 +52,7 @@ const PhotoSeries = () => {
     <SerieContainer>
       {series.map((serie) => (
         <SerieWrapper key={serie.name}>
-          <Link to={`/${serie.id}`}>
+          <Link to={`series/${serie.id}`}>
             <img
               src={serie.images ? serie.images[0].url : []}
               alt={`${serie.name}`}

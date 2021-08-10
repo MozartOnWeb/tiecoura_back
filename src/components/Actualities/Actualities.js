@@ -30,14 +30,14 @@ const Actualities = () => {
     <SerieContainer>
       {actualities.map((actuality) => (
         <SerieWrapper key={actuality.id}>
-          <Link to={`/${actuality.id}`}>
+          <Link to={`actualities/${actuality.id}`}>
             <img
               src={actuality.image ? actuality.image : []}
               alt={`${actuality.name}`}
             />
             <p>{actuality.name}</p>
           </Link>
-          <DeleteActuality name={actuality.name} actuality={actuality} />
+          <DeleteActuality name={actuality.id} actuality={actuality} />
         </SerieWrapper>
       ))}
       <hr className="hr0" />

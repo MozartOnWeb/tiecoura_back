@@ -16,7 +16,7 @@ import { BsFileCheck } from "react-icons/bs";
 // Import Firestore & Storage
 import { fs, sr } from "../../firebase";
 
-const UpdateImage = ({ name, single, currentActuality }) => {
+const UpdateImage = ({ name, currentActuality }) => {
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
 
@@ -32,7 +32,7 @@ const UpdateImage = ({ name, single, currentActuality }) => {
   const deleteLast = async () => {
     const storageRef = sr.ref();
     try {
-      const fileRef = storageRef.child(`images/Actualities/${name}`);
+      const fileRef = storageRef.child(`images/Actualities/${currentActuality}/${name}`);
       await fileRef.delete();
     } catch (e) {
       console.log(e);
@@ -43,7 +43,7 @@ const UpdateImage = ({ name, single, currentActuality }) => {
     if (file) {
       deleteLast();
       const storageRef = sr.ref();
-      const fileRef = storageRef.child(`images/Actualities/${file.name}`);
+      const fileRef = storageRef.child(`images/Actualities/${currentActuality}/${file.name}`);
       await fileRef.put(file).on(
         "state_change",
         (snapshot) => {
@@ -60,7 +60,7 @@ const UpdateImage = ({ name, single, currentActuality }) => {
           fs.collection("Actualities")
             .doc(currentActuality)
             .update({
-              name: file.name,
+              imageName: file.name,
               image: await fileRef.getDownloadURL(),
             });
           setFile((e.target.value = null));

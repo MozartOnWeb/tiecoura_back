@@ -10,12 +10,11 @@ import { toast } from "react-toastify";
 import { fs, sr } from "../../firebase";
 
 const DeleteActuality = ({ name }) => {
-
   const notifyError = () =>
-    toast.error(" 🔥 IMPOSSIBLE D'EFFACER CETTE SéRIE");
+    toast.error(" 🔥 IMPOSSIBLE D'EFFACER CETTE ACTUALITé");
 
   const notifySuccess = () =>
-    toast.success(" ✔️ SéRIE EFFACéE AVEC SUCCèS");
+    toast.success(" ✔️ ACTUALITé EFFACéE AVEC SUCCèS");
 
   const onDelete = async () => {
     fs.collection("Actualities").doc(name).delete();
@@ -34,9 +33,9 @@ const DeleteActuality = ({ name }) => {
         });
       })
       .catch(function (error) {
-        notifyError()
+        notifyError();
       });
-    await notifySuccess()
+    await notifySuccess();
   };
 
   return (

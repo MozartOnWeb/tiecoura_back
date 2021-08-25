@@ -6,17 +6,25 @@ import { down } from "styled-breakpoints";
 
 export const ActualityWrapper = styled.div`
   width: 90vw;
-  margin: 50px auto;
-  overflow-x: hidden;
+  height: 90vh;
+  margin: 30px auto;
+  overflow: hidden;
   hr {
     display: none;
+  }
+
+  .eventSubmit {
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   .series_container {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin: 50px auto;
+    height: 400px;
 
     ${down("sm")} {
       margin: 0 auto;
@@ -88,7 +96,7 @@ export const ActualityTitle = styled.h2`
 
 export const ImageWrapper = styled.div`
   width: 200px;
-  height: 265px;
+  height: 168px;
   align-self: start;
   position: relative;
   margin-top: 10px;
@@ -112,15 +120,16 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ActyalityDesc = styled.div`
-  width: 300px;
+  width: 400px;
   position: relative;
+  overflow: hidden;
   ${down("sm")} {
     width: 100%;
   }
   input,
   textarea {
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     font-family: ${(props) => props.theme.mainFont};
     color: ${(props) => props.theme.white};
     font-size: 14px;
@@ -128,13 +137,23 @@ export const ActyalityDesc = styled.div`
     border: none;
     border-bottom: 1px solid ${(props) => props.theme.red};
     background: rgba(255, 255, 255, 0.03);
-    width: 100%;
+    width: 90%;
     position: relative;
     outline: none;
   }
+  label {
+    margin: 0px;
+    p {
+      margin: 0px;
+      color: ${props => props.theme.white};
+      opacity: .6;
+      font-size: 12px;
+    }
+  }
   button {
-    margin-top: 10px;
+    margin: 10px;
     font-size: 12px;
+    align-self: center;
   }
   textarea {
   resize: none;

@@ -11,10 +11,10 @@ import { fs, sr } from "../../firebase";
 
 const DeleteActuality = ({ name }) => {
   const notifyError = () =>
-    toast.error(" 🔥 IMPOSSIBLE D'EFFACER CETTE ACTUALITé");
+    toast.error(" 🔥 IMPOSSIBLE D'EFFACER CETS éVENT");
 
   const notifySuccess = () =>
-    toast.success(" ✔️ ACTUALITé EFFACéE AVEC SUCCèS");
+    toast.success(" ✔️ éVENT EFFACé AVEC SUCCèS");
 
   const onDelete = async () => {
     fs.collection("Actualities").doc(name).delete();

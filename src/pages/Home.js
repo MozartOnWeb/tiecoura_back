@@ -91,7 +91,7 @@ const Home = () => {
     },
     {
       component: Actualities,
-      title: "Actualité",
+      title: "éVENTS",
       id: 11,
     },
   ];

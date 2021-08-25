@@ -19,10 +19,10 @@ const NewActuality = () => {
   };
 
   const notifyError = () =>
-    toast.error(" 🔥 IMPOSSIBLE DE CRéER CETTE SéRIE");
+    toast.error(" 🔥 IMPOSSIBLE DE CRéER CET éVENT");
 
   const notifySuccess = () =>
-    toast.success(" ✔️ SéRIE CRééE AVEC SUCCèS");
+    toast.success(" ✔️ éVENT CRéé AVEC SUCCèS");
 
   const onSerieCreate = () => {
     if (!actName) {
@@ -39,7 +39,7 @@ const NewActuality = () => {
   return (
     <SerieForm>
       <input value={actName} onChange={onSerieNameChange} type="text" />
-      <Submit onClick={onSerieCreate}>Créer une nouvelle actualité</Submit>
+      <Submit onClick={onSerieCreate}>Créer un nouveau évent</Submit>
     </SerieForm>
   );
 };

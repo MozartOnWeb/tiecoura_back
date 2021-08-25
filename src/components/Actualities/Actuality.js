@@ -51,7 +51,7 @@ const Actuality = () => {
           </Link>
         </Back>
         <ActualityTitle>
-          Actualité : <span>{ActualityName}</span>
+          éVENT : <span>{ActualityName}</span>
         </ActualityTitle>
       </ActualityHeader>
       <div className="series_container">

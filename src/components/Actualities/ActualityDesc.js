@@ -13,9 +13,9 @@ const ActualityDesc = ({ currentActuality }) => {
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [hour, setHour] = useState("");
+  const [name, setName] = useState("");
 
   const onDescChange = (e) => setDesc(e.target.value);
-  const onTitleChange = (e) => setTitle(e.target.value);
   const onDateChange = (e) => setDate(e.target.value);
   const onLocationChange = (e) => setLocation(e.target.value);
   const onHourChange = (e) => setHour(e.target.value);
@@ -24,20 +24,26 @@ const ActualityDesc = ({ currentActuality }) => {
     const serieRef = fs.collection("Actualities").doc(currentActuality);
 
     serieRef.get().then((doc) => {
-      let { desc, title, date, location, hour } = doc.data();
+      let { desc, date, location, hour } = doc.data();
       setDesc(desc);
-      setTitle(title);
       setDate(date);
       setLocation(location);
       setHour(hour);
     });
+
+    fs.collection("Actualities")
+      .doc(currentActuality)
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          setName(doc.data().name);
+        }
+      });
   }, []);
 
   const onSend = () => {
-    if (desc || date || title || location || hour) {
+    if (desc || date || location || hour) {
       fs.collection("Actualities").doc(currentActuality).update({
         desc: desc,
-        title: title,
         date: date,
         location: location,
         hour: hour,
@@ -50,12 +56,7 @@ const ActualityDesc = ({ currentActuality }) => {
       <ActyalityDesc>
         <label>
           <p>Titre</p>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={onTitleChange}
-          />
+          <input type="text" name="title" value={name} disabled />
         </label>
 
         <label>

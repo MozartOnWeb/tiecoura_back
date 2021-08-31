@@ -1,5 +1,5 @@
 // Import Styled Components
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 // Import styled Breakpoints
 import { down } from "styled-breakpoints";

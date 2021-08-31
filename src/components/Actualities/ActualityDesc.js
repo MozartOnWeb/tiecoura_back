@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Import Styles
-import { ActyalityDesc } from "../../styles/ActualitiesStyles";
+import { ActyalityDesc, DescContainer } from "../../styles/ActualitiesStyles";
 import { Submit } from "../../styles/layout";
 
 // Import Firetore
@@ -52,7 +52,7 @@ const ActualityDesc = ({ currentActuality }) => {
   };
 
   return (
-    <>
+    <div className="desc_container">
       <ActyalityDesc>
         <label>
           <p>Titre</p>
@@ -90,7 +90,7 @@ const ActualityDesc = ({ currentActuality }) => {
       <ActyalityDesc className="eventSubmit">
         <Submit onClick={onSend}>Mettre à jour</Submit>
       </ActyalityDesc>
-    </>
+    </div>
   );
 };
 

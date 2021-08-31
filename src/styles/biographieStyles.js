@@ -1,9 +1,6 @@
 // Import Styled Components
 import styled from "styled-components";
 
-// Import styled Breakpoints
-import { down } from "styled-breakpoints";
-
 export const BioContainer = styled.div`
   width: 90vw;
   display: inline-flex;
@@ -34,7 +31,8 @@ export const SingleBio = styled.div`
     font-size: 14px;
     text-decoration: underline;
   }
-  textarea, input {
+  textarea,
+  input {
     resize: none;
     font-family: ${(props) => props.theme.mainFont};
     color: ${(props) => props.theme.white};
@@ -47,7 +45,6 @@ export const SingleBio = styled.div`
     position: relative;
     outline: none;
   }
-
 
   button {
     font-size: 12px;

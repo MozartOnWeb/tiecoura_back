@@ -21,6 +21,7 @@ export const SingleSerieWrapper = styled.div`
     width: 130px;
     height: 100px;
     margin-bottom: 20px;
+    margin-right: 0px;
   }
   ${down("s")} {
     width: 100px;
@@ -44,14 +45,15 @@ export const SerieContainer = styled.div`
   }
   .series_container {
     ${down("sm")} {
-      margin: 0 auto;
+      margin: 0px auto;
       flex-wrap: wrap;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
     }
   }
   ${down("sm")} {
+    margin: 15px auto;
     hr {
       display: block;
       width: 90vw;

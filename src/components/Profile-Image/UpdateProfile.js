@@ -5,8 +5,6 @@ import { Submit } from "../../styles/layout";
 
 // Import Toastify
 import { toast } from "react-toastify";
-import { motion } from "framer-motion";
-
 
 // Import Styles
 import { UpdateForm } from "../../styles/updateImgStyles";
@@ -20,7 +18,6 @@ import { fs, sr } from "../../firebase/";
 const UpdateProfile = ({ name, single }) => {
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
-
 
   const notifyError2 = () => toast.error(" 🔥 AUCUNE IMAGE CHOISIE");
 
@@ -38,7 +35,7 @@ const UpdateProfile = ({ name, single }) => {
       const fileRef = storageRef.child(`images/Profile/${name}`);
       await fileRef.delete();
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   };
 
@@ -56,7 +53,7 @@ const UpdateProfile = ({ name, single }) => {
         });
       setTimeout(() => {
         notifySuccess();
-        setFile(e.target.files = null)
+        setFile((e.target.files = null));
       }, 100);
     } else {
       notifyError2();
@@ -72,7 +69,7 @@ const UpdateProfile = ({ name, single }) => {
         "state_change",
         (snapshot) => {
           const Percentage = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
           setProgress(Percentage);
         },
@@ -89,7 +86,7 @@ const UpdateProfile = ({ name, single }) => {
             });
           setFile((e.target.value = null));
           notifySuccess();
-        },
+        }
       );
     }
   };
@@ -101,7 +98,6 @@ const UpdateProfile = ({ name, single }) => {
       </label>
       <input type="file" onChange={onFileChange} accept="image/*" />
       <Submit onClick={onUpload2}>Mettre à jour</Submit>
-      
     </UpdateForm>
   );
 };

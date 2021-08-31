@@ -1,5 +1,5 @@
 // Import Styled Components
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 // Import styled Breakpoints
 import { down } from "styled-breakpoints";
@@ -44,7 +44,8 @@ export const VideoWrapper = styled.div`
     margin-right: 20px;
   }
 
-  video, iframe {
+  video,
+  iframe {
     border-radius: 15px;
     width: 100%;
     height: 100%;

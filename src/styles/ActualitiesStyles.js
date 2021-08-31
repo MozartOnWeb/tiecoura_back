@@ -6,40 +6,52 @@ import { down } from "styled-breakpoints";
 
 export const ActualityWrapper = styled.div`
   width: 90vw;
-  height: 90vh;
   margin: 30px auto;
-  overflow: hidden;
-  hr {
-    display: none;
+
+  ${down("sm")} {
+    margin: 30px auto 10px auto;
+    height: 100%;
+    margin: 15px auto;
+    hr {
+      display: block;
+      width: 90vw;
+      margin: 25px auto;
+    }
   }
 
   .eventSubmit {
     text-align: center;
     margin-bottom: 40px;
+    ${down("sm")} {
+      margin-bottom: -70px;
+    }
   }
 
   .series_container {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     margin: 50px auto;
     height: 400px;
 
     ${down("sm")} {
-      margin: 0 auto;
-      flex-wrap: wrap;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0px auto;
+      justify-content: space-between;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
     }
   }
 
-  ${down("sm")} {
-    hr {
-      display: block;
-      width: 90vw;
-      margin: 25px auto;
+  .desc_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 75%;
+    ${down("sm")} {
+      width: 100%;
+      margin-top: 80px;
     }
   }
 `;
@@ -100,17 +112,28 @@ export const ImageWrapper = styled.div`
   align-self: start;
   position: relative;
   margin-top: 10px;
-  img {
-    margin-top: 15px;
-    border-radius: 15px;
+  div {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    margin-top: 15px;
+    border-radius: 15px;
+    img {
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
+
   ${down("sm")} {
-    width: 130px;
+    width: 180px;
     height: 100px;
-    margin-bottom: 20px;
+    margin: 0px auto 40px 30%;
+    align-self: center;
+    div {
+      width: 130px;
+      height: 100px;
+    }
   }
   ${down("s")} {
     width: 100px;
@@ -145,8 +168,8 @@ export const ActyalityDesc = styled.div`
     margin: 0px;
     p {
       margin: 0px;
-      color: ${props => props.theme.white};
-      opacity: .6;
+      color: ${(props) => props.theme.white};
+      opacity: 0.6;
       font-size: 12px;
     }
   }
@@ -156,8 +179,8 @@ export const ActyalityDesc = styled.div`
     align-self: center;
   }
   textarea {
-  resize: none;
-}
+    resize: none;
+  }
 `;
 
 export const UpdateForm = styled.div`
@@ -168,12 +191,13 @@ export const UpdateForm = styled.div`
   ${down("sm")} {
     width: 100%;
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 75px;
   }
 
   input {
     opacity: 0;
     z-index: 1;
+    width: 50%;
   }
 
   input[type="file"] {

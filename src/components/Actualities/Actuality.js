@@ -56,10 +56,11 @@ const Actuality = () => {
       </ActualityHeader>
       <div className="series_container">
         <ImageWrapper>
-          <img src={image} alt={image} />
+          <div>
+            <img src={image} alt={image} />
+          </div>
           <UpdateImage name={imageName} currentActuality={actuality} />
         </ImageWrapper>
-        <hr />
         <ActualityDesc currentActuality={actuality} />
       </div>
     </ActualityWrapper>

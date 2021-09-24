@@ -6,7 +6,7 @@ export const Submit = styled.button`
   cursor: pointer;
   padding: 0;
   background: transparent;
-  color: ${(props) => props.theme.red};
+  color: ${(props) => props.theme.white};
   font-family: ${(props) => props.theme.linkFont};
   text-transform: uppercase;
   font-weight: 400;
@@ -21,7 +21,7 @@ export const Submit = styled.button`
     width: 15px;
     transform: rotate(-90deg);
     path {
-      fill: ${(props) => props.theme.red};
+      fill: ${(props) => props.theme.white};
     }
   }
 
@@ -49,6 +49,6 @@ export const Submit = styled.button`
     bottom: 0px;
     border-width: 0 0 1px;
     border-style: solid;
-    border-color: ${(props) => props.theme.red};
+    border-color: ${(props) => props.theme.white};
   }
 `;

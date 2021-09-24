@@ -32,7 +32,7 @@ export const HomeTitle = styled.h2`
   ${(props) =>
     props.thin &&
     css`
-      color: ${(props) => props.theme.red};
+      color: ${(props) => props.theme.white};
       text-align: left;
       margin-top: -10px;
       font-size: 14px;
@@ -66,7 +66,7 @@ export const LogOut = styled.div`
   svg {
     width: 100%;
     height: 100%;
-    fill: ${(props) => props.theme.red};
+    fill: ${(props) => props.theme.white};
   }
   ${down("sm")} {
     width: 30px;

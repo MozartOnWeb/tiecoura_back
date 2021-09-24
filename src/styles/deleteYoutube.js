@@ -11,8 +11,8 @@ export const DeleteButton = styled.button`
   left: 52%;
   transform: translate(-50%, -50%);
   width: 100%;
-  color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.red};
+  color: ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.white};
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 10px;

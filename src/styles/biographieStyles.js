@@ -39,7 +39,7 @@ export const SingleBio = styled.div`
     font-size: 14px;
     padding: 10px 10px;
     border: none;
-    border-bottom: 1px solid ${(props) => props.theme.red};
+    border-bottom: 1px solid ${(props) => props.theme.white};
     background: rgba(255, 255, 255, 0.03);
     width: 100%;
     position: relative;

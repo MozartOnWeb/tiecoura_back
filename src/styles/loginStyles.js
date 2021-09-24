@@ -42,7 +42,7 @@ export const LoginForm = styled.form`
     font-size: 14px;
     padding: 10px 10px;
     border: none;
-    border-bottom: 1px solid ${(props) => props.theme.red};
+    border-bottom: 1px solid ${(props) => props.theme.black};
     background: rgba(0, 0, 0, 0.04);
     width: 90%;
     position: relative;
@@ -54,6 +54,11 @@ export const LoginForm = styled.form`
   button {
     margin-top: 30px;
     font-size: 14px;
+    color: ${(props) => props.theme.black};
+    font-weight: bold;
+    &::after {
+      border-color: ${(props) => props.theme.black};
+    }
   }
 `;
 

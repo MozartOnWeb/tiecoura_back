@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Delete = styled.button`
   width: 30px;
-  border: 1px solid ${(props) => props.theme.red};
+  border: 1px solid ${(props) => props.theme.black};
   font-family: "Poppins";
   font-weight: bold;
   font-size: 11px;
@@ -15,6 +15,6 @@ export const Delete = styled.button`
   position: absolute;
   top: 5px;
   right: 5px;
-  background: ${(props) => props.theme.red};
+  background: ${(props) => props.theme.white};
   cursor: pointer;
 `;

@@ -74,7 +74,7 @@ export const SerieTitle = styled.h2`
     margin-left: 10px;
     font-size: 22px;
     letter-spacing: 0.8px;
-    color: ${(props) => props.theme.red};
+    color: ${(props) => props.theme.white};
     ${down("s")} {
       font-size: 16px;
     }
@@ -107,7 +107,7 @@ export const Back = styled.div`
     width: 100%;
     height: 100%;
     path {
-      fill: ${(props) => props.theme.red};
+      fill: ${(props) => props.theme.white};
     }
   }
 `;

@@ -39,12 +39,12 @@ export const UpdateForm = styled.div`
       width: 100%;
       height: 100%;
       path {
-        stroke: ${(props) => props.theme.red};
+        stroke: ${(props) => props.theme.white};
       }
     }
 
     .svg2 {
-      fill: ${(props) => props.theme.red};
+      fill: ${(props) => props.theme.white};
       width: 24px;
       height: 24px;
     }
@@ -59,7 +59,7 @@ export const UpdateForm = styled.div`
 
   div {
     height: 3px;
-    background: ${(props) => props.theme.red};
+    background: ${(props) => props.theme.white};
     margin-top: 10px;
     width: 0px;
   }

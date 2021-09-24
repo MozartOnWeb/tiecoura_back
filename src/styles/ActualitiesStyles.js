@@ -75,7 +75,7 @@ export const Back = styled.div`
     width: 100%;
     height: 100%;
     path {
-      fill: ${(props) => props.theme.red};
+      fill: ${(props) => props.theme.white};
     }
   }
 `;
@@ -92,7 +92,7 @@ export const ActualityTitle = styled.h2`
     margin-left: 10px;
     font-size: 22px;
     letter-spacing: 0.8px;
-    color: ${(props) => props.theme.red};
+    color: ${(props) => props.theme.white};
     ${down("s")} {
       font-size: 16px;
     }
@@ -158,7 +158,7 @@ export const ActyalityDesc = styled.div`
     font-size: 14px;
     padding: 10px 10px;
     border: none;
-    border-bottom: 1px solid ${(props) => props.theme.red};
+    border-bottom: 1px solid ${(props) => props.theme.white};
     background: rgba(255, 255, 255, 0.03);
     width: 90%;
     position: relative;
@@ -219,12 +219,12 @@ export const UpdateForm = styled.div`
       width: 100%;
       height: 100%;
       path {
-        stroke: ${(props) => props.theme.red};
+        stroke: ${(props) => props.theme.white};
       }
     }
 
     .svg2 {
-      fill: ${(props) => props.theme.red};
+      fill: ${(props) => props.theme.white};
       width: 24px;
       height: 24px;
     }
@@ -239,7 +239,7 @@ export const UpdateForm = styled.div`
 
   div {
     height: 3px;
-    background: ${(props) => props.theme.red};
+    background: ${(props) => props.theme.white};
     margin-top: 10px;
     width: 0px;
   }

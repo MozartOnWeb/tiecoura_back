@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tiecoura-01"
+  },
+  "targets": {
+    "tiecoura-01": {
+      "hosting": {
+        "back": [
+          "tiecoura-back"
+        ]
+      }
+    }
+  }
+}

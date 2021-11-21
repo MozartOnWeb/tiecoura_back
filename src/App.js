@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
 body {
   font-family: "Poppins";
   background-color: #161616;
-  .toast_conatiner {
+  .toast_container {
     text-transform: uppercase;
   }
 }
@@ -48,7 +48,7 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
-      <ToastContainer autoClose={2000} className="toast_conatiner" />
+      <ToastContainer autoClose={2000} className="toast_container" />
       <Switch>
         <PrivateRoute path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />

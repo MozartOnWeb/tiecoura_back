@@ -32,7 +32,7 @@ export const HomeTitle = styled.h2`
   ${(props) =>
     props.thin &&
     css`
-      color: ${(props) => props.theme.red};
+      color: ${(props) => props.theme.white};
       text-align: left;
       margin-top: -10px;
       font-size: 14px;
@@ -72,5 +72,28 @@ export const LogOut = styled.div`
     width: 30px;
     height: 30px;
     right: 40px;
+  }
+`;
+
+export const Logo = styled.div`
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  ${down("md")} {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  ${down("sm")} {
+    width: 50px;
+    height: 50px;
   }
 `;

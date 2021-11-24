@@ -14,9 +14,9 @@ export const ImagesContainer = styled.div`
   justify-content: center;
 
   hr {
-    width: 90vw;
+    width: 85vw;
     margin: 20px auto;
-    opacity: 0.4;
+    opacity: 0.1;
   }
   .hr0 {
     width: 90vw;
@@ -34,7 +34,8 @@ export const ImagesWrapper = styled.div`
   border-radius: 15px;
   position: relative;
 
-  img, video {
+  img,
+  video {
     border-radius: 15px;
     width: 100%;
     height: 70%;

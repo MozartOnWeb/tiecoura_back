@@ -10,7 +10,7 @@ export const SerieForm = styled.div`
 
   input {
     margin-bottom: 10px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-family: ${(props) => props.theme.mainFont};
     color: ${(props) => props.theme.white};
     font-size: 14px;

@@ -14,9 +14,9 @@ export const BGContainer = styled.div`
   justify-content: center;
 
   hr {
-    width: 90vw;
+    width: 85vw;
     margin: 20px auto;
-    opacity: 0.4;
+    opacity: 0.1;
   }
   .hr0 {
     width: 90vw;

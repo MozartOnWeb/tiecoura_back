@@ -33,7 +33,7 @@ const NewVideo = () => {
         "state_change",
         (snapshot) => {
           const Percentage = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
           setProgress(Percentage);
         },
@@ -50,20 +50,19 @@ const NewVideo = () => {
             });
           setFile((e.target.value = null));
           notifySuccess();
-        },
+        }
       );
     }
   };
 
   return (
     <VideoForm>
-      {file && (
-        <motion.div
-          animate={{ width: progress + "%" }}></motion.div>
-      )}
+      {file && <motion.div animate={{ width: progress + "%" }}></motion.div>}
 
       <input type="file" onChange={onFileChange} accept="video/*" />
-      <Submit onClick={onUpload2}>Ajouter cette vidéo</Submit>
+      <Submit new="true" onClick={onUpload2}>
+        Ajouter cette vidéo
+      </Submit>
     </VideoForm>
   );
 };

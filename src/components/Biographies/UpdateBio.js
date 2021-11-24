@@ -35,7 +35,9 @@ const UpdateBio = ({ single }) => {
     <SingleBio>
       <p> {name} </p>
       <textarea cols="30" rows="5" value={desc} onChange={onDescChange} />
-      <Submit onClick={onSend}>Mettre à jour</Submit>
+      <Submit new="true" onClick={onSend}>
+        Mettre à jour
+      </Submit>
     </SingleBio>
   );
 };

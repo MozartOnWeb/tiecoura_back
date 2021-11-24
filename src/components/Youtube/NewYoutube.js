@@ -19,11 +19,9 @@ import firebase from "firebase";
 const NewVideo = () => {
   const [url, setUrl] = useState("");
 
-  const notifyError = () =>
-    toast.error(" 🔥 CECI N'EST PAS UN LIEN VALIDE");
+  const notifyError = () => toast.error(" 🔥 CECI N'EST PAS UN LIEN VALIDE");
 
-  const notifySuccess = () =>
-    toast.success(" ✔️ VIDéO AJOUTéE AVEC SUCCèS");
+  const notifySuccess = () => toast.success(" ✔️ VIDéO AJOUTéE AVEC SUCCèS");
 
   const onUrlChange = (e) => {
     setUrl(e.target.value);
@@ -47,7 +45,9 @@ const NewVideo = () => {
   return (
     <VideoForm>
       <input type="url" onChange={onUrlChange} />
-      <Submit onClick={onUrlUpload}>Ajouter cette vidéo</Submit>
+      <Submit new="true" onClick={onUrlUpload}>
+        Ajouter cette vidéo
+      </Submit>
     </VideoForm>
   );
 };

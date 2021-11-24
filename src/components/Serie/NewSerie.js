@@ -18,11 +18,9 @@ const NewSerie = () => {
     setSerieName(e.target.value);
   };
 
-  const notifyError = () =>
-    toast.error(" 🔥 IMPOSSIBLE DE CRéER CETTE SéRIE");
+  const notifyError = () => toast.error(" 🔥 IMPOSSIBLE DE CRéER CETTE SéRIE");
 
-  const notifySuccess = () =>
-    toast.success(" ✔️ SéRIE CRééE AVEC SUCCèS");
+  const notifySuccess = () => toast.success(" ✔️ SéRIE CRééE AVEC SUCCèS");
 
   const onSerieCreate = () => {
     if (!serieName) {
@@ -39,7 +37,9 @@ const NewSerie = () => {
   return (
     <SerieForm>
       <input value={serieName} onChange={onSerieNameChange} type="text" />
-      <Submit onClick={onSerieCreate}>Créer une Nouvelle Série</Submit>
+      <Submit new="true" onClick={onSerieCreate}>
+        Créer une Nouvelle Série
+      </Submit>
     </SerieForm>
   );
 };

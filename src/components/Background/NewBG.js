@@ -39,7 +39,7 @@ const NewBG = () => {
         "state_change",
         (snapshot) => {
           const percentage = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
           setProgress(percentage);
         },
@@ -54,7 +54,7 @@ const NewBG = () => {
               url: await fileRef.getDownloadURL(),
             });
           notifySuccess();
-        },
+        }
       );
     });
   };
@@ -70,7 +70,9 @@ const NewBG = () => {
         <motion.div animate={{ width: progress + "%" }}></motion.div>
       )}
       <input type="file" multiple onChange={trackFiles} accept="image/*" />
-      <Submit onClick={uploadFiles}>Ajouter cette Photo</Submit>
+      <Submit new="true" onClick={uploadFiles}>
+        Ajouter cette Photo
+      </Submit>
     </VideoForm>
   );
 };

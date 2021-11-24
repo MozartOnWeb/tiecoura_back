@@ -41,6 +41,12 @@ export const Submit = styled.button`
       font-weight: bold;
     `}
 
+  ${(props) =>
+    props.new &&
+    css`
+      margin-bottom: 30px;
+    `}
+
   &::after {
     content: "";
     position: absolute;

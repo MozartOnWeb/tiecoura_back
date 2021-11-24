@@ -34,8 +34,15 @@ const UpdateExperience = ({ single }) => {
   return (
     <SingleBio>
       <p> {name} </p>
-      <input type="number" name="number" value={number} onChange={onDescChange} />
-      <Submit onClick={onSend}>Mettre à jour</Submit>
+      <input
+        type="number"
+        name="number"
+        value={number}
+        onChange={onDescChange}
+      />
+      <Submit new="true" onClick={onSend}>
+        Mettre à jour
+      </Submit>
     </SingleBio>
   );
 };

@@ -11,9 +11,9 @@ export const BioContainer = styled.div`
   justify-content: space-around;
 
   hr {
-    width: 90vw;
+    width: 85vw;
     margin: 20px auto;
-    opacity: 0.4;
+    opacity: 0.1;
   }
 
   .hr0 {

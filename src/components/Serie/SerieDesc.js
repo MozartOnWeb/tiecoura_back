@@ -19,7 +19,7 @@ const SerieDesc = ({ currentSerie }) => {
       let { desc } = doc.data();
       setDesc(desc);
     });
-  }, []);
+  }, [currentSerie]);
 
   const onSend = () => {
     if (desc) {

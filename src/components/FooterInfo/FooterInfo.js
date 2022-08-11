@@ -32,7 +32,7 @@ const FooterInfo = () => {
         year: year,
       });
     }
-  }, []);
+  }, [year, year3]);
 
   return (
     <BioContainer>
@@ -44,7 +44,7 @@ const FooterInfo = () => {
       <UpdateEmail />
       <UpdatePhone />
       <hr className="hr0" />
-      <hr /> 
+      <hr />
     </BioContainer>
   );
 };

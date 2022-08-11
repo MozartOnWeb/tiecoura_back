@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Import Styles
-import { ActyalityDesc, DescContainer } from "../../styles/ActualitiesStyles";
+import { ActyalityDesc } from "../../styles/ActualitiesStyles";
 import { Submit } from "../../styles/layout";
 
 // Import Firetore
@@ -9,7 +9,6 @@ import { fs } from "../../firebase";
 
 const ActualityDesc = ({ currentActuality }) => {
   const [desc, setDesc] = useState("");
-  const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [hour, setHour] = useState("");
@@ -38,7 +37,7 @@ const ActualityDesc = ({ currentActuality }) => {
           setName(doc.data().name);
         }
       });
-  }, []);
+  }, [currentActuality]);
 
   const onSend = () => {
     if (desc || date || location || hour) {

@@ -65,7 +65,7 @@ const UpdateProfile = ({ name, single }) => {
       deleteLast();
       const storageRef = sr.ref();
       const fileRef = storageRef.child(`images/Profile/${file.name}`);
-      await fileRef.put(file).on(
+      fileRef.put(file).on(
         "state_change",
         (snapshot) => {
           const Percentage = Math.round(

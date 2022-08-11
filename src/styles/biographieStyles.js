@@ -24,7 +24,7 @@ export const BioContainer = styled.div`
 `;
 
 export const SingleBio = styled.div`
-  width: 300px;
+  width: 250px;
   p {
     text-transform: uppercase;
     color: ${(props) => props.theme.white};

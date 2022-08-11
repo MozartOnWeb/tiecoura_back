@@ -21,7 +21,7 @@ const UpdateBio = ({ single }) => {
       setDesc(desc);
       setName(name);
     });
-  }, []);
+  }, [single]);
 
   const onSend = () => {
     if (desc) {

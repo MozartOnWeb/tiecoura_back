@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
 // Import icon
-import { MdKeyboardBackspace } from "react-icons/md";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 // Import Styles
 import {
@@ -47,7 +47,7 @@ const Actuality = () => {
       <ActualityHeader>
         <Back>
           <Link to="/">
-            <MdKeyboardBackspace />
+            <IoIosArrowRoundBack />
           </Link>
         </Back>
         <ActualityTitle>

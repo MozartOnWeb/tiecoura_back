@@ -23,10 +23,19 @@ const ActualityDesc = ({ currentActuality }) => {
     const serieRef = fs.collection("Actualities").doc(currentActuality);
 
     serieRef.get().then((doc) => {
-      let { desc, date, location, hour } = doc.data();
+      let { desc } = doc.data();
       setDesc(desc);
+    });
+    serieRef.get().then((doc) => {
+      let { date } = doc.data();
       setDate(date);
+    });
+    serieRef.get().then((doc) => {
+      let { location } = doc.data();
       setLocation(location);
+    });
+    serieRef.get().then((doc) => {
+      let { hour } = doc.data();
       setHour(hour);
     });
 
@@ -48,6 +57,7 @@ const ActualityDesc = ({ currentActuality }) => {
         hour: hour,
       });
     }
+    console.log(desc, date, location, hour);
   };
 
   return (

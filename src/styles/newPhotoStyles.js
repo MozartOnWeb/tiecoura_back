@@ -5,9 +5,7 @@ import styled, { css } from "styled-components";
 import { down } from "styled-breakpoints";
 
 export const PhotoForm = styled.div`
-  bottom: 5%;
   width: 300px;
-  position: absolute;
   ${(props) =>
     props.comp &&
     css`

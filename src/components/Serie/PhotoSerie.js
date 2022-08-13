@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
 // Import icon
-import { MdKeyboardBackspace } from "react-icons/md";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 // Import Styles
 import {
@@ -46,7 +46,7 @@ const PhotoSerie = () => {
       <SerieHeader>
         <Back>
           <Link to="/">
-            <MdKeyboardBackspace />
+            <IoIosArrowRoundBack />
           </Link>
         </Back>
         <SerieTitle>
@@ -67,8 +67,10 @@ const PhotoSerie = () => {
           ))}
       </div>
       <hr />
-      <NewPhoto currentSerie={serie} />
-      <SerieDesc currentSerie={serie} />
+      <div className="footer-container">
+        <NewPhoto currentSerie={serie} />
+        <SerieDesc currentSerie={serie} />
+      </div>
     </SerieContainer>
   );
 };

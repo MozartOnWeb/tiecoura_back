@@ -6,9 +6,7 @@ import { down } from "styled-breakpoints";
 
 export const DescWrapper = styled.div`
   width: 300px;
-  position: absolute;
-  bottom: 5%;
-  right: 8%;
+  margin-top: 20px;
   ${down("sm")} {
     width: 100%;
     position: relative;

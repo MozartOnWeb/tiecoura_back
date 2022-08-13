@@ -24,7 +24,7 @@ const PhotoSeries = () => {
         });
         setSeries(tempSeries);
       });
-  }, []);
+  }, [setSeries]);
 
   return (
     <SerieContainer>

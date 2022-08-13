@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { down } from "styled-breakpoints";
 
 export const UpdateForm = styled.div`
-  top: 70%;
+  top: 75%;
   width: 100%;
   position: absolute;
 
@@ -54,7 +54,7 @@ export const UpdateForm = styled.div`
     letter-spacing: 2.5px;
     font-weight: 300;
     font-size: 10px;
-    margin-top: 5px;
+    margin-top: 15px;
   }
 
   div {

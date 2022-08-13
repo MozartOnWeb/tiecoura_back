@@ -39,7 +39,7 @@ export const SerieWrapper = styled.div`
       box-sizing: border-box;
       text-align: center;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
       position: absolute;
       bottom: -55px;

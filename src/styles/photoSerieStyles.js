@@ -60,6 +60,11 @@ export const SerieContainer = styled.div`
       margin: 25px auto;
     }
   }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const SerieTitle = styled.h2`
@@ -72,7 +77,7 @@ export const SerieTitle = styled.h2`
   }
   span {
     margin-left: 10px;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.8px;
     color: ${(props) => props.theme.white};
     ${down("s")} {

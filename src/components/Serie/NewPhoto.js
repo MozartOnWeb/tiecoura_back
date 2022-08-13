@@ -24,19 +24,19 @@ const NewPhoto = ({ currentSerie }) => {
     }
   };
 
-  const uploadFiles = async (e) => {
+  const uploadFiles = (e) => {
     const storageRef = sr.ref();
 
     allImages.map(async (img) => {
       let fileRef = storageRef.child(
-        `images/series/${currentSerie}/${img.name}`,
+        `images/series/${currentSerie}/${img.name}`
       );
 
       fileRef.put(img).on(
         "state_change",
         (snapshot) => {
           const percentage = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
           setProgress(percentage);
         },
@@ -52,7 +52,7 @@ const NewPhoto = ({ currentSerie }) => {
                 url: await fileRef.getDownloadURL(),
               }),
             });
-        },
+        }
       );
     });
   };
@@ -69,7 +69,8 @@ const NewPhoto = ({ currentSerie }) => {
         <motion.div
           animate={{
             width: progress + "%",
-          }}></motion.div>
+          }}
+        ></motion.div>
       )}
       <input type="file" multiple onChange={trackFiles} accept="image/*" />
       <Submit onClick={uploadFiles}>Ajouter cette image</Submit>

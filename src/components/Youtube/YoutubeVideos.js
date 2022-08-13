@@ -33,7 +33,8 @@ const AllVideos = () => {
             src={video.url}
             title="Youtube"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen"
+          ></iframe>
           <DeleteYoutube video={video.id} />
         </VideoWrapper>
       ))}

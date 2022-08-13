@@ -64,12 +64,12 @@ export const ActualityHeader = styled.div`
 `;
 
 export const Back = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-right: 15px;
   ${down("s")} {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   svg {
     width: 100%;
@@ -90,8 +90,9 @@ export const ActualityTitle = styled.h2`
   }
   span {
     margin-left: 10px;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.8px;
+    font-weight: 500;
     color: ${(props) => props.theme.white};
     ${down("s")} {
       font-size: 16px;
